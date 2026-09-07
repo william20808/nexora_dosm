@@ -1,5 +1,5 @@
 # nexora_dosm
-Competition of DOSM code and documents
+Competition of DOSM code and documents. Please follow below format and put here once you have done your part. Video and Report are separated from here
 
 ```text
 nexora_dosm/
