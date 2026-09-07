@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+database/raw_data.csv
+database/clean_data.csv
+database/*.sqlite-shm
+database/*.sqlite-wal
+*.pbix.lock
