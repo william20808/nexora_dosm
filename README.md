@@ -1,17 +1,16 @@
 # nexora_dosm
 Competition of DOSM code and documents
 
+```text
 nexora_dosm/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-│
 ├── database/
 │   ├── dosm_datathon.db
 │   ├── schema.sql
 │   ├── cleaning.sql
 │   └── queries.sql
-│
 ├── src/
 │   ├── data/
 │   │   ├── import_data.py
@@ -24,9 +23,9 @@ nexora_dosm/
 │   └── evaluation/
 │       ├── evaluate.py
 │       └── explainability.py
-│
 └── dashboard/
     ├── Dashboard.pbix
     ├── Dashboard.pdf
     ├── Data.csv
     └── README.txt
+```
