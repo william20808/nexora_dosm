@@ -9,7 +9,7 @@ CREATE TABLE "imputed_panel_data" (
   "source_currency_code" TEXT,
   "market_segment" TEXT,
   "year" INTEGER,
-  "month" TEXT,
+  "month" INTEGER,
   "monthly_tourist_arrivals" REAL,
   "monthly_arrivals_available_flag" INTEGER,
   "monthly_myr_per_source_currency" REAL,
@@ -66,7 +66,7 @@ CREATE TABLE "original_panel_data" (
   "source_currency_code" TEXT,
   "market_segment" TEXT,
   "year" INTEGER,
-  "month" TEXT,
+  "month" INTEGER,
   "monthly_tourist_arrivals" REAL,
   "monthly_arrivals_available_flag" INTEGER,
   "monthly_myr_per_source_currency" REAL
