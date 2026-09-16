@@ -4,6 +4,7 @@
 **Team**: Nexora  
 **Group Focus**: Tourism Demand Forecasting, Macroeconomic Impact & Geopolitical Risk Analytics  
 **Problem Statement**: How does the geopolitical affect the tourism industry in malaysia? 
+
 **Organiser**: Department of Statistics Malaysia (DOSM)  
 **Official Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Official updates, announcements & forms)*  
 **Competition Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)
