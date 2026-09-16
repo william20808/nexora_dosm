@@ -15,13 +15,6 @@ This repository houses the analytical models, data engineering pipelines, intera
 
 ---
 
-## 🌐 Official Competition Portal & Details
-
-> 🔗 **Check Competition Details Here**: **[https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/)**  
-> Visit the official portal for competition schedules, live updates, announcements, FAQs, and the official confirmation submission Google Form.
-
----
-
 ## 📦 Preliminary Round Deliverables & Deadlines
 
 > **Submission Location**: Team Nexora's designated Google Drive folder  
