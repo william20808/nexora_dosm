@@ -2,7 +2,6 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
-requirements.txt
 .env
 .pytest_cache/
 data/raw_data.csv

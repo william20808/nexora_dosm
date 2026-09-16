@@ -36,6 +36,7 @@ This repository houses the analytical models, data engineering pipelines, intera
 ```text
 nexora_dosm/
 ├── README.md                                         # Master repository overview & navigation
+├── requirements.txt                                  # Python dependencies
 ├── .gitignore                                        # Ignored temporary files & local caches
 ├── competition and submission/
 │   ├── README.md                                     # Workspace hub & portal links
