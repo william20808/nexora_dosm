@@ -18,6 +18,8 @@ nexora_dosm/
 │   ├── queries.sql                                   # SQL analytics & ML feature engineering queries
 │   └── excel data/
 │       └── dataset.xlsx                              # Master Excel dataset (5 sheets incl. Sources)
+├── submission/
+│   └── README.md                                     # Preliminary Round submission guidelines, packaging & checklist
 ├── report/
 │   ├── README.md                                     # Report specifications & section page allocations
 │   └── doc_link.txt                                  # Collaborative OneDrive Word template link
@@ -36,6 +38,23 @@ nexora_dosm/
     ├── Data.csv                                      # Exported dashboard dataset
     └── README.txt                                    # Dashboard notes
 ```
+
+---
+
+## 📦 Preliminary Round Deliverables & Deadlines
+
+> **Submission Location**: Team Nexora's designated Google Drive folder  
+> **Safest File Upload Deadline**: **22 September 2026, 5:00 PM**  
+> **Confirmation Google Form Deadline**: **22 September 2026, 11:59 PM**  
+> *(Finish uploading all files before 5:00 PM; do not wait until the form deadline)*
+
+| Deliverable | Required Output File | Description | Detailed Guide |
+| :--- | :--- | :--- | :--- |
+| **1. Written Report** | `Nexora_Datathon2026_Report.pdf` | Max 25 pages, official cover template, Times New Roman 12, 1.5 line spacing | [`report/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report) |
+| **2. Dashboard Package** | `Nexora_Datathon2026_Dashboard.zip` | Compressed package: `Dashboard.pdf`, `Dashboard.pbix`, `Data.csv`, `README.txt` | [`dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/dashboard) |
+| **3. Video Presentation** | `Nexora_Datathon2026_Video.mp4` | Max 10 minutes, MP4 format, live working dashboard demonstration | [`submission/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/submission) |
+
+*For complete submission rules, video flow, and pre-submission checklists, see [`submission/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/submission/README.md).*
 
 ---
 
