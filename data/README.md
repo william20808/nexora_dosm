@@ -2,22 +2,26 @@
 
 **Team**: Nexora  
 **Competition**: Department of Statistics Malaysia (DOSM) Datathon 2026  
-**Primary Assets**: `dosm_datathon.db` (SQLite) & `excel data/dataset.xlsx` (Excel)
+**Primary Assets**: `dosm_datathon.db` (SQLite) & `excel data/final_deliveries_dataset.xlsx` (Excel)
 
 ---
 
 ## 📌 Data Overview
 
-This directory contains the historical tourism panel and macroeconomic time-series data spanning **March 2017 to September 2026** (10-year monthly horizon). The data tracks international tourist arrivals to Malaysia across **20 key source markets** alongside bilateral exchange rates, global energy prices, Malaysian economic indices, and geopolitical risk indicators.
+This directory houses the comprehensive analytical dataset for Team **Nexora**, integrating:
+1. **International Country Panel Data**: Monthly horizon from **March 2017 to September 2026** tracking international tourist arrivals across **20 key source markets** alongside bilateral exchange rates and competition hold-out evaluation splits.
+2. **National Macroeconomic Time Series**: Monthly indicators spanning energy prices (Brent Crude), retail fuel prices (RON95, RON97, Diesel), Malaysian economic leading/coincident/lagging indices, and global/domestic Geopolitical Risk (GPR) indices.
+3. **State-Level Tourism & Hospitality Panel**: Annual panel spanning **2017 to 2025** across **16 Malaysian states and federal territories**, capturing hotel occupancy rates, domestic vs. international hotel guests, and domestic visitor volumes.
+4. **Authoritative Variable Provenance Catalog**: Comprehensive metadata mapping 63 variables to custodian agencies, APIs, publications, units, and missingness audit metrics.
 
 ```text
 data/
 ├── README.md                 # Data catalog, schema definitions & variable dictionary
-├── dosm_datathon.db          # SQLite relational database containing 5 indexed tables
-├── schema.sql                # Table definitions (DDL) and indexing scripts
-├── queries.sql               # 17 analytical, auditing, and feature engineering SQL queries
+├── dosm_datathon.db          # SQLite relational database containing 6 indexed tables & 3 views
+├── schema.sql                # Table definitions (DDL), indexing scripts & views
+├── queries.sql               # 20 analytical, auditing, and feature engineering SQL queries
 └── excel data/
-    └── dataset.xlsx          # Master Excel workbook (5 sheets including Sources)
+    └── final_deliveries_dataset.xlsx # Master Excel workbook (6 sheets including Sources)
 ```
 
 ---
@@ -26,15 +30,22 @@ data/
 
 | Table Name | Source Sheet | Rows | Columns | Description |
 | :--- | :--- | :---: | :---: | :--- |
-| **`imputed_panel_data`** | Imputed Panel Data (2) | **69,040** | **12** | Master panel table of monthly tourist arrivals by country, bilateral FX rates, and model split tags. |
-| **`original_panel_data`** | Original Data (2) | **69,040** | **10** | Un-imputed ground truth panel observations. |
+| **`imputed_panel_data`** | Imputed Country Panel Data | **69,040** | **12** | Master panel table of monthly tourist arrivals by country, bilateral FX rates, and model split tags. |
+| **`original_panel_data`** | Original Country Panel Data | **69,040** | **10** | Un-imputed ground truth monthly country panel observations. |
 | **`imputed_time_series_data`** | Imputed Time Series Data | **115** | **37** | Monthly external macroeconomic, energy, and geopolitical predictors with imputed gaps. |
-| **`original_time_series_data`** | Original Data | **115** | **26** | Un-imputed monthly macroeconomic and geopolitical time series. |
-| **`sources`** | Sources | **49** | **17** | Data dictionary mapping every variable to official source agencies, APIs, and units. |
+| **`original_time_series_data`** | Original Time Series Data | **115** | **26** | Un-imputed monthly macroeconomic and geopolitical time series. |
+| **`hotel_state_annual_panel_data`** | Hotel State Annual Panel Data | **144** | **14** | Annual state-level hotel occupancy rates, guest headcounts (domestic & foreign), and domestic visitor volumes. |
+| **`sources`** | Sources | **63** | **17** | Authoritative data dictionary mapping every variable code across all sheets to official sources and APIs. |
+
+> [!NOTE]
+> For convenience and backwards compatibility, the database provides views:
+> - `imputed_country_panel_data` → alias for `imputed_panel_data`
+> - `original_country_panel_data` → alias for `original_panel_data`
+> - `hotel_state_panel_data` → alias for `hotel_state_annual_panel_data`
 
 ---
 
-## 📋 Panel Data Variables (`imputed_panel_data` & `original_panel_data`)
+## 📋 Country Panel Data Variables (`imputed_panel_data` & `original_panel_data`)
 
 Each observation represents a monthly record for a specific international origin market:
 
@@ -55,12 +66,12 @@ Each observation represents a monthly record for a specific international origin
 
 ---
 
-## 📈 Time Series Data Variables (`imputed_time_series_data` & `original_time_series_data`)
+## 📈 Macroeconomic Time Series Variables (`imputed_time_series_data` & `original_time_series_data`)
 
 Monthly external macroeconomic, commodity, and geopolitical risk indicators affecting tourism demand:
 
 ### 1. Calendar & Temporal Identifiers
-* **`month`** (`TEXT`): Year-month identifier in `YYYY-MM` format (e.g., `2017-03`).
+* **`month`** (`TEXT`): Year-month identifier in `YYYY-MM-DD` format (e.g., `2017-03-01`).
 * **`year`** (`INTEGER`): Calendar year (2017 to 2026).
 * **`month_number`** (`INTEGER`): Calendar month index (1 to 12).
 
@@ -103,13 +114,36 @@ Monthly external macroeconomic, commodity, and geopolitical risk indicators affe
 
 ---
 
+## 🏨 State Hotel Panel Variables (`hotel_state_annual_panel_data`)
+
+Annual state-level hospitality operations and domestic visitor metrics covering 2017 to 2025 across all 16 states and federal territories:
+
+| Variable Name | Data Type | Description & Meaning |
+| :--- | :---: | :--- |
+| **`date`** | `TEXT` | Calendar year-end date in `YYYY-MM-DD` format (`2017-12-31` to `2025-12-31`). |
+| **`year`** | `INTEGER` | Calendar observation year (2017 to 2025, 9 consecutive annual periods). |
+| **`state_code`** | `TEXT` | Standard ISO 3166-2:MY state identifier code (e.g., `MY-01` for Johor, `MY-14` for Kuala Lumpur). |
+| **`state_name`** | `TEXT` | Official English name of the state or federal territory. |
+| **`hotel_occupancy_rate_pct`** | `REAL` | Annual average hotel room occupancy rate expressed as a percentage (sourced from Tourism Malaysia KPI reports). |
+| **`domestic_hotel_guests`** | `INTEGER` | Count of domestic Malaysian residents accommodated in hotels within the state. |
+| **`international_hotel_guests`** | `INTEGER` | Count of foreign international travelers accommodated in hotels within the state. |
+| **`total_hotel_guests`** | `INTEGER` | Aggregate hotel guests accommodated (`domestic_hotel_guests` + `international_hotel_guests`). |
+| **`domestic_visitors`** | `INTEGER` | Total domestic visitor trips into the state (sourced from DOSM Survey of Domestic Tourism). |
+| **`release_agency`** | `TEXT` | Custodian reporting agencies (*Tourism Malaysia* and *Department of Statistics Malaysia*). |
+| **`source_document`** | `TEXT` | Formal publication name (e.g., *Tourism Malaysia KPI 2018–2025*, *DOSM Domestic Tourism Survey*). |
+| **`source_url`** | `TEXT` | Official download or portal URL. |
+| **`source_pages`** | `TEXT` | Specific report page citations. |
+| **`data_quality_note`** | `TEXT` | Data quality and provenance audit notes (e.g., unit conversions from '000 to absolute headcounts, revised baseline notes). |
+
+---
+
 ## 📖 Variable Provenance Catalog (`sources` table)
 
 The `sources` table acts as the authoritative metadata dictionary mapping every variable code across all workbook sheets to official sources:
 
 | Column Name | Description |
 | :--- | :--- |
-| **`workbook_sheet`** | Target Excel sheet where the variable appears (`Imputed Panel Data (2)`, `Imputed Time Series Data`, etc.). |
+| **`workbook_sheet`** | Target Excel sheet where the variable appears (`Imputed Country Panel Data`, `Imputed Time Series Data`, `Hotel State Annual Panel Data`). |
 | **`variable_code`** | Programmatic column name in the database. |
 | **`variable_name`** | Formal descriptive name of the indicator. |
 | **`what_it_comes_from`** | Functional description of the metric's source. |
@@ -118,10 +152,10 @@ The `sources` table acts as the authoritative metadata dictionary mapping every 
 | **`source_dataset_or_series`** | Official dataset publication or series title. |
 | **`api_or_download_url_used`** | Live public URL or API endpoint used to retrieve the data. |
 | **`access_method`** | Ingestion mechanism (e.g., `API query`, `Direct file download`, `Open data portal`). |
-| **`source_classification`** | Category (e.g., `Panel Target`, `Macroeconomic Index`, `Exchange Rate`, `Commodity Price`). |
-| **`frequency`** | Temporal granularity (`Monthly`, `Daily aggregated to Monthly`). |
-| **`measurement_unit`** | Unit of measure (`Persons`, `Index (2015=100)`, `MYR/Currency`, `USD/bbl`, `RM/litre`). |
-| **`cleaning_or_derivation_applied`** | Transformations applied (e.g., `Monthly averaging`, `Forward-fill imputation`, `Standardization`). |
+| **`source_classification`** | Category (e.g., `Panel Target`, `Macroeconomic Index`, `Exchange Rate`, `Commodity Price`, `Hospitality Metric`). |
+| **`frequency`** | Temporal granularity (`Monthly`, `Daily aggregated to Monthly`, `Annual`). |
+| **`measurement_unit`** | Unit of measure (`Persons`, `Index (2015=100)`, `MYR/Currency`, `USD/bbl`, `RM/litre`, `Percent`). |
+| **`cleaning_or_derivation_applied`** | Transformations applied (e.g., `Monthly averaging`, `Forward-fill imputation`, `Standardization`, `Headcount unit conversion`). |
 | **`original_missing_count`** | Number of missing values in the raw dataset. |
 | **`original_missing_rate_pct`** | Missing data percentage prior to imputation. |
 | **`final_missing_count`** | Missing data count in the final modeling table. |
@@ -129,9 +163,16 @@ The `sources` table acts as the authoritative metadata dictionary mapping every 
 
 ---
 
-## 🗺️ Origin Market Classification (20 Countries)
+## 🗺️ Geographic & Market Classifications
 
+### 1. International Source Markets (20 Countries)
 * **ASEAN (7 Markets)**:
   * Brunei (`BRN` / BND), Indonesia (`IDN` / IDR), Myanmar (`MMR` / MMK), Philippines (`PHL` / PHP), Singapore (`SGP` / SGD), Thailand (`THA` / THB), Vietnam (`VNM` / VND).
 * **Non-ASEAN (13 Markets)**:
   * Australia (`AUS` / AUD), Bangladesh (`BGD` / BDT), China (`CHN` / CNY), France (`FRA` / EUR), Germany (`DEU` / EUR), India (`IND` / INR), Japan (`JPN` / JPY), Nepal (`NPL` / NPR), Pakistan (`PAK` / PKR), South Korea (`KOR` / KRW), Taiwan (`TWN` / TWD), United Kingdom (`GBR` / GBP), United States (`USA` / USD).
+
+### 2. Domestic State-Level Coverage (16 States & Federal Territories)
+* **Peninsular Malaysia (13 States / Territories)**:
+  * Johor (`MY-01`), Kedah (`MY-02`), Kelantan (`MY-03`), Melaka (`MY-04`), Negeri Sembilan (`MY-05`), Pahang (`MY-06`), Pulau Pinang (`MY-07`), Perak (`MY-08`), Perlis (`MY-09`), Selangor (`MY-10`), Terengganu (`MY-11`), W.P. Kuala Lumpur (`MY-14`), W.P. Putrajaya (`MY-16`).
+* **East Malaysia (3 States / Territories)**:
+  * Sabah (`MY-12`), Sarawak (`MY-13`), W.P. Labuan (`MY-15`).

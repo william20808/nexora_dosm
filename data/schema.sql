@@ -1,5 +1,23 @@
 -- Schema for DOSM Tourism Datathon Database (dosm_datathon.db)
--- Generated from dataset.xlsx
+-- Generated from final_deliveries_dataset.xlsx (6 sheets including Sources)
+
+-- TABLE: hotel_state_annual_panel_data
+CREATE TABLE "hotel_state_annual_panel_data" (
+"date" TEXT,
+  "year" INTEGER,
+  "state_code" TEXT,
+  "state_name" TEXT,
+  "hotel_occupancy_rate_pct" REAL,
+  "domestic_hotel_guests" INTEGER,
+  "international_hotel_guests" INTEGER,
+  "total_hotel_guests" INTEGER,
+  "domestic_visitors" INTEGER,
+  "release_agency" TEXT,
+  "source_document" TEXT,
+  "source_url" TEXT,
+  "source_pages" TEXT,
+  "data_quality_note" TEXT
+);
 
 -- TABLE: imputed_panel_data
 CREATE TABLE "imputed_panel_data" (
@@ -102,6 +120,36 @@ CREATE TABLE "original_time_series_data" (
   "retrieved_at_utc" REAL
 );
 
+-- TABLE: sources
+CREATE TABLE "sources" (
+"workbook_sheet" TEXT,
+  "variable_code" TEXT,
+  "variable_name" TEXT,
+  "what_it_comes_from" TEXT,
+  "original_source_field_or_formula" TEXT,
+  "release_agency" TEXT,
+  "source_dataset_or_series" TEXT,
+  "api_or_download_url_used" TEXT,
+  "access_method" TEXT,
+  "source_classification" TEXT,
+  "frequency" TEXT,
+  "measurement_unit" TEXT,
+  "cleaning_or_derivation_applied" TEXT,
+  "original_missing_count" REAL,
+  "original_missing_rate_pct" REAL,
+  "final_missing_count" INTEGER,
+  "related_flag_or_important_note" TEXT
+);
+
+-- INDEX: idx_hsapd_state_date
+CREATE INDEX [idx_hsapd_state_date] ON [hotel_state_annual_panel_data] ([state_code], [date]);
+
+-- INDEX: idx_hsapd_state_year
+CREATE INDEX [idx_hsapd_state_year] ON [hotel_state_annual_panel_data] ([state_code], [year]);
+
+-- INDEX: idx_hsapd_year
+CREATE INDEX [idx_hsapd_year] ON [hotel_state_annual_panel_data] ([year]);
+
 -- INDEX: idx_ipd_country_date
 CREATE INDEX [idx_ipd_country_date] ON [imputed_panel_data] ([source_country_iso3], [date]);
 
@@ -126,27 +174,15 @@ CREATE INDEX [idx_ots_month] ON [original_time_series_data] ([month]);
 -- INDEX: idx_ots_year_month
 CREATE INDEX [idx_ots_year_month] ON [original_time_series_data] ([year], [month_number]);
 
--- TABLE: sources
-CREATE TABLE "sources" (
-  "workbook_sheet" TEXT,
-  "variable_code" TEXT,
-  "variable_name" TEXT,
-  "what_it_comes_from" TEXT,
-  "original_source_field_or_formula" TEXT,
-  "release_agency" TEXT,
-  "source_dataset_or_series" TEXT,
-  "api_or_download_url_used" TEXT,
-  "access_method" TEXT,
-  "source_classification" TEXT,
-  "frequency" TEXT,
-  "measurement_unit" TEXT,
-  "cleaning_or_derivation_applied" TEXT,
-  "original_missing_count" INTEGER,
-  "original_missing_rate_pct" REAL,
-  "final_missing_count" INTEGER,
-  "related_flag_or_important_note" TEXT
-);
-
 -- INDEX: idx_sources_sheet_var
 CREATE INDEX [idx_sources_sheet_var] ON [sources] ([workbook_sheet], [variable_code]);
+
+-- VIEW: hotel_state_panel_data
+CREATE VIEW [hotel_state_panel_data] AS SELECT * FROM [hotel_state_annual_panel_data];
+
+-- VIEW: imputed_country_panel_data
+CREATE VIEW [imputed_country_panel_data] AS SELECT * FROM [imputed_panel_data];
+
+-- VIEW: original_country_panel_data
+CREATE VIEW [original_country_panel_data] AS SELECT * FROM [original_panel_data];
 

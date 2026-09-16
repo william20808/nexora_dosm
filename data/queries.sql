@@ -1,7 +1,7 @@
 -- ==============================================================================
 -- DOSM Tourism Datathon 2026: Comprehensive SQL Query Suite
 -- Database: dosm_datathon.db (SQLite)
--- Dataset: dataset.xlsx
+-- Dataset: final_deliveries_dataset.xlsx
 --
 -- Structure:
 --   PART 1: DATA VIEWING & AUDITING (Data Engineering Sanity Checks)
@@ -107,6 +107,25 @@ SELECT DISTINCT
     source_currency_code
 FROM imputed_panel_data
 ORDER BY market_segment, source_country_name;
+
+
+-- ------------------------------------------------------------------------------
+-- 1.6 State-Level Hotel Panel Balance & Temporal Audit
+-- Verifies that all 16 states/territories have 9 consecutive annual records (2017-2025)
+-- with complete occupancy rates, domestic visitors, and hotel guest counts.
+-- ------------------------------------------------------------------------------
+SELECT 
+    state_code,
+    state_name,
+    COUNT(*) AS total_annual_records,
+    MIN(year) AS earliest_year,
+    MAX(year) AS latest_year,
+    ROUND(AVG(hotel_occupancy_rate_pct), 2) AS avg_occupancy_pct,
+    ROUND(AVG(total_hotel_guests) / 1000000.0, 2) AS avg_annual_hotel_guests_millions,
+    ROUND(AVG(domestic_visitors) / 1000000.0, 2) AS avg_annual_domestic_visitors_millions
+FROM hotel_state_annual_panel_data
+GROUP BY state_code, state_name
+ORDER BY avg_occupancy_pct DESC;
 
 
 
@@ -262,6 +281,48 @@ LEFT JOIN (SELECT * FROM annual_country_arrivals WHERE year = 2023) y2023
 LEFT JOIN (SELECT * FROM annual_country_arrivals WHERE year = 2024) y2024 
   ON y2019.source_country_iso3 = y2024.source_country_iso3
 ORDER BY arrivals_2019_baseline DESC;
+
+
+-- ------------------------------------------------------------------------------
+-- 2.7 State Hotel Occupancy Ranking & Pandemic Impact / Recovery
+-- Compares pre-pandemic baseline (2019) vs lockdown trough (2020) vs recovery (2024).
+-- Highlights which Malaysian states demonstrated the highest tourism resilience.
+-- ------------------------------------------------------------------------------
+SELECT 
+    state_code,
+    state_name,
+    MAX(CASE WHEN year = 2019 THEN hotel_occupancy_rate_pct END) AS occ_2019_pre_covid_pct,
+    MAX(CASE WHEN year = 2020 THEN hotel_occupancy_rate_pct END) AS occ_2020_trough_pct,
+    MAX(CASE WHEN year = 2024 THEN hotel_occupancy_rate_pct END) AS occ_2024_recovery_pct,
+    MAX(CASE WHEN year = 2025 THEN hotel_occupancy_rate_pct END) AS occ_2025_latest_pct,
+    ROUND(
+        MAX(CASE WHEN year = 2024 THEN hotel_occupancy_rate_pct END) - 
+        MAX(CASE WHEN year = 2019 THEN hotel_occupancy_rate_pct END), 1
+    ) AS occ_change_2024_vs_2019_pct_pts
+FROM hotel_state_annual_panel_data
+GROUP BY state_code, state_name
+ORDER BY occ_2024_recovery_pct DESC;
+
+
+-- ------------------------------------------------------------------------------
+-- 2.8 Domestic vs. International Hotel Guest Profile & Density by State
+-- Analyzes the structural dependency of each state on international vs. domestic
+-- travelers and compares hotel guests against total domestic visitors.
+-- ------------------------------------------------------------------------------
+SELECT 
+    state_code,
+    state_name,
+    year,
+    domestic_hotel_guests,
+    international_hotel_guests,
+    total_hotel_guests,
+    ROUND(international_hotel_guests * 100.0 / NULLIF(total_hotel_guests, 0), 2) AS intl_guest_share_pct,
+    domestic_visitors,
+    ROUND(domestic_hotel_guests * 100.0 / NULLIF(domestic_visitors, 0), 2) AS domestic_hotel_capture_rate_pct,
+    hotel_occupancy_rate_pct
+FROM hotel_state_annual_panel_data
+WHERE year = 2024
+ORDER BY intl_guest_share_pct DESC;
 
 
 

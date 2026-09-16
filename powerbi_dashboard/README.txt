@@ -25,11 +25,12 @@ Step 5: Alternatively, view "Dashboard.pdf" for a high-resolution, static
 ------------------------
 * Slicers & Filters: Use top and left navigation panels to slice arrivals 
   by Source Country (20 international markets), Market Segment (ASEAN vs. 
-  Non-ASEAN), and observation timeline (2017 to 2026).
+  Non-ASEAN), Malaysian State (16 states/territories), and observation timeline (2017 to 2026).
 * Cross-Filtering: Clicking any visual element (bar, map bubble, line point) 
   will dynamically cross-filter all linked charts across the canvas.
 * Tooltips: Hover over any data point to display granular monthly metrics, 
-  bilateral exchange rates (MYR/FX), fuel prices, and geopolitical risk indices.
+  bilateral exchange rates (MYR/FX), fuel prices, geopolitical risk indices, 
+  and state hotel occupancy / domestic visitor statistics.
 * Reset: Click the "Reset Filters" bookmark button located at the top-right 
   of any page to return to default views.
 
@@ -43,7 +44,9 @@ Step 5: Alternatively, view "Dashboard.pdf" for a high-resolution, static
 
 5. ASSUMPTIONS AND LIMITATIONS
 ------------------------------
-* Data Coverage: Monthly panel from March 2017 to September 2026.
+* Data Coverage: Monthly panel from March 2017 to September 2026 for international 
+  tourist arrivals; annual state-level hotel occupancy and domestic visitor panel 
+  from 2017 to 2025 across 16 Malaysian states and federal territories.
 * Forecasting Horizon: October 2024 to September 2026 represents the official 
   hold-out evaluation period where arrival figures are predicted using the 
   machine learning models.

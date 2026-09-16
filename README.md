@@ -13,7 +13,7 @@
 
 ## 🎯 Executive Overview
 
-This repository houses the analytical models, data engineering pipelines, interactive Power BI dashboard workspace, and preliminary round submission documentation for **Team Nexora**. The project integrates a 10-year monthly dataset (March 2017 to September 2026) spanning **20 international source markets** to model and forecast tourism demand patterns in Malaysia under the influence of bilateral exchange rates, global fuel prices, and geopolitical risk factors.
+This repository houses the analytical models, data engineering pipelines, interactive Power BI dashboard workspace, and preliminary round submission documentation for **Team Nexora**. The project integrates a 10-year monthly dataset (March 2017 to September 2026) spanning **20 international source markets** alongside an annual state-level hospitality panel (**16 Malaysian states and territories**, 2017–2025) to model and forecast tourism demand patterns in Malaysia under the influence of bilateral exchange rates, global fuel prices, and geopolitical risk factors.
 
 ---
 
@@ -36,7 +36,6 @@ This repository houses the analytical models, data engineering pipelines, intera
 ```text
 nexora_dosm/
 ├── README.md                                         # Master repository overview & navigation
-├── requirements.txt                                  # Python dependencies
 ├── .gitignore                                        # Ignored temporary files & local caches
 ├── competition and submission/
 │   ├── README.md                                     # Workspace hub & portal links
@@ -47,11 +46,11 @@ nexora_dosm/
 │       └── README.md                                 # Preliminary round packaging guidelines & master checklist
 ├── data/
 │   ├── README.md                                     # Complete data catalog, schema & variable dictionary
-│   ├── dosm_datathon.db                              # Relational SQLite database (5 indexed tables)
-│   ├── schema.sql                                    # Database DDL table definitions & indexes
-│   ├── queries.sql                                   # 17 data viewing, auditing & feature engineering SQL queries
+│   ├── dosm_datathon.db                              # Relational SQLite database (6 indexed tables & 3 views)
+│   ├── schema.sql                                    # Database DDL table definitions, indexes & views
+│   ├── queries.sql                                   # 20 data viewing, auditing & feature engineering SQL queries
 │   └── excel data/
-│       └── dataset.xlsx                              # Master Excel workbook (5 sheets incl. Sources)
+│       └── final_deliveries_dataset.xlsx             # Master Excel workbook (6 sheets incl. Sources)
 ├── machine_learning/
 │   ├── README.md                                     # Machine learning pipeline documentation
 │   ├── features/
@@ -84,7 +83,7 @@ Houses all competition-level materials organized into two subfolders:
 Always monitor [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) for live updates.
 
 ### 2. Data Ecosystem ([`data/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/data))
-Houses the SQLite database (`dosm_datathon.db`), master Excel dataset (`dataset.xlsx`), schema DDL, and SQL queries. Complete variable definitions and data catalogs are documented in [`data/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/data/README.md).
+Houses the SQLite database (`dosm_datathon.db`), master Excel dataset (`final_deliveries_dataset.xlsx`), schema DDL, and SQL query suite. The repository integrates monthly country arrivals (20 source markets), macroeconomic and geopolitical time series, and 16-state annual hotel performance data (2017–2025). Complete variable definitions and data catalogs are documented in [`data/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/data/README.md).
 
 ### 3. Machine Learning ([`machine_learning/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/machine_learning))
 Modular pipeline workspace for feature engineering, model training, and performance evaluation. Module outlines and workflow structures are documented in [`machine_learning/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/machine_learning/README.md).
