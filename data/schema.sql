@@ -1,5 +1,5 @@
 -- Schema for DOSM Tourism Datathon Database (dosm_datathon.db)
--- Generated from monthly_shared_predictors_corrected_mar2017.xlsx
+-- Generated from dataset.xlsx
 
 -- TABLE: imputed_panel_data
 CREATE TABLE "imputed_panel_data" (
@@ -125,4 +125,28 @@ CREATE INDEX [idx_ots_month] ON [original_time_series_data] ([month]);
 
 -- INDEX: idx_ots_year_month
 CREATE INDEX [idx_ots_year_month] ON [original_time_series_data] ([year], [month_number]);
+
+-- TABLE: sources
+CREATE TABLE "sources" (
+  "workbook_sheet" TEXT,
+  "variable_code" TEXT,
+  "variable_name" TEXT,
+  "what_it_comes_from" TEXT,
+  "original_source_field_or_formula" TEXT,
+  "release_agency" TEXT,
+  "source_dataset_or_series" TEXT,
+  "api_or_download_url_used" TEXT,
+  "access_method" TEXT,
+  "source_classification" TEXT,
+  "frequency" TEXT,
+  "measurement_unit" TEXT,
+  "cleaning_or_derivation_applied" TEXT,
+  "original_missing_count" INTEGER,
+  "original_missing_rate_pct" REAL,
+  "final_missing_count" INTEGER,
+  "related_flag_or_important_note" TEXT
+);
+
+-- INDEX: idx_sources_sheet_var
+CREATE INDEX [idx_sources_sheet_var] ON [sources] ([workbook_sheet], [variable_code]);
 

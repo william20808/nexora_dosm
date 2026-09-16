@@ -11,11 +11,12 @@ nexora_dosm/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── database/
-│   ├── dosm_datathon.db                                  # SQLite database containing full time-series & panel tables
-│   ├── monthly_shared_predictors_corrected_mar2017.xlsx  # Official source Excel workbook (138,000+ rows)
+├── data/
+│   ├── dosm_datathon.db                                  # SQLite database containing full time-series, panel & sources tables
 │   ├── schema.sql                                        # Table definitions (DDL) and indexing structure
-│   └── queries.sql                                       # Analytical and feature extraction queries
+│   ├── queries.sql                                       # Analytical and feature extraction queries
+│   └── excel data/
+│       └── dataset.xlsx                                  # Official source Excel workbook (138,000+ rows, 5 sheets incl. Sources)
 ├── src/
 │   ├── features/
 │   │   └── feature_engineering.py
@@ -25,6 +26,9 @@ nexora_dosm/
 │   └── evaluation/
 │       ├── evaluate.py
 │       └── explainability.py
+├── report/
+│   ├── README.md                                         # Official report guidelines, page budgets & structure
+│   └── doc_link.txt                                      # Collaborative Word/Docs live editing URL
 └── dashboard/
     ├── Dashboard.pbix
     ├── Dashboard.pdf
@@ -34,7 +38,7 @@ nexora_dosm/
 
 ---
 
-## 🗄️ Database Architecture (`database/dosm_datathon.db`)
+## 🗄️ Database Architecture (`data/dosm_datathon.db`)
 
 The SQLite database integrates historical tourism arrivals across **20 international source markets** alongside Malaysian macroeconomic and global geopolitical risk indicators spanning **March 2017 to September 2026** (10 years).
 
@@ -44,10 +48,12 @@ The SQLite database integrates historical tourism arrivals across **20 internati
 | **`original_panel_data`** | Original Data (2) | **69,040** | **10** | Un-imputed ground truth panel observations. |
 | **`imputed_time_series_data`** | Imputed Time Series Data | **115** | **37** | Monthly external macroeconomic indicators: Brent Crude, RON95/RON97 fuel prices, Leading Economic Index, and Geopolitical Risk (GPR) indices. |
 | **`original_time_series_data`** | Original Data | **115** | **26** | Un-imputed monthly macroeconomic and geopolitical time series. |
+| **`sources`** | Sources | **49** | **17** | Data dictionary and provenance catalog mapping every variable to official source APIs, agencies, units, and derivation rules. |
 
 ### Indexed Columns
 - `imputed_panel_data`: `(source_country_iso3, date)`, `(source_country_iso3, year, month)`
 - `imputed_time_series_data`: `(year, month_number)`, `(month)`
+- `sources`: `(workbook_sheet, variable_code)`
 
 ---
 
@@ -63,9 +69,9 @@ The SQLite database integrates historical tourism arrivals across **20 internati
 
 ---
 
-## 🔍 Analytical SQL Queries (`database/queries.sql`)
+## 🔍 Analytical SQL Queries (`data/queries.sql`)
 
-Key queries ready to execute against `database/dosm_datathon.db`:
+Key queries ready to execute against `data/dosm_datathon.db`:
 
 1. **Macroeconomic & Geopolitical Join**: Aligns tourist volume with Brent Crude, local fuel prices, leading economic index, and GPR indices.
 2. **Market Share Ranking**: Ranks inbound tourist volume by origin country and market segment.
@@ -84,7 +90,7 @@ import sqlite3
 import pandas as pd
 
 # Connect to SQLite database
-conn = sqlite3.connect("database/dosm_datathon.db")
+conn = sqlite3.connect("data/dosm_datathon.db")
 
 # Example: Extract monthly arrivals joined with macroeconomic predictors
 query = """

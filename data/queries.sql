@@ -1,7 +1,7 @@
 -- ==============================================================================
 -- DOSM Tourism Datathon: Essential Analytical & Modeling SQL Queries
 -- Database: dosm_datathon.db
--- Data Source: monthly_shared_predictors_corrected_mar2017.xlsx
+-- Data Source: dataset.xlsx
 -- ==============================================================================
 
 -- ------------------------------------------------------------------------------
@@ -176,3 +176,19 @@ FROM (SELECT * FROM annual_totals WHERE year = 2019) t2019
 LEFT JOIN (SELECT * FROM annual_totals WHERE year = 2024) t2024
   ON t2019.source_country_iso3 = t2024.source_country_iso3
 ORDER BY arrivals_2019_baseline DESC;
+
+
+-- ------------------------------------------------------------------------------
+-- 9. Variable Provenance & Metadata Lookup
+-- Retrieves official source APIs, agencies, and units for all modeling variables.
+-- ------------------------------------------------------------------------------
+SELECT 
+    workbook_sheet,
+    variable_code,
+    variable_name,
+    release_agency,
+    source_dataset_or_series,
+    measurement_unit,
+    original_missing_rate_pct
+FROM sources
+ORDER BY workbook_sheet, variable_code;

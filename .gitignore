@@ -4,6 +4,10 @@ __pycache__/
 venv/
 .env
 .pytest_cache/
+data/raw_data.csv
+data/clean_data.csv
+data/*.sqlite-shm
+data/*.sqlite-wal
 database/raw_data.csv
 database/clean_data.csv
 database/*.sqlite-shm
