@@ -1,7 +1,38 @@
-# nexora_dosm
+# 🇲🇾 DOSM Datathon 2026
 
+**Theme**: Leveraging Machine Learning (ML) & Artificial Intelligence (AI) for Sustainable Tourism in Malaysia  
 **Team**: Nexora  
-**Event**: Department of Statistics Malaysia (DOSM) Datathon 2026 — Tourism Forecasting & Economic Analytics Repository.
+**Group Focus**: Tourism Demand Forecasting, Macroeconomic Impact & Geopolitical Risk Analytics  
+**Organiser**: Department of Statistics Malaysia (DOSM)  
+**Official Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Official updates, announcements & forms)*  
+**Competition Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)
+
+---
+
+## 🎯 Executive Overview
+
+This repository houses the analytical models, data engineering pipelines, interactive Power BI dashboard workspace, and preliminary round submission documentation for **Team Nexora**. The project integrates a 10-year monthly dataset (March 2017 to September 2026) spanning **20 international source markets** to model and forecast tourism demand patterns in Malaysia under the influence of bilateral exchange rates, global fuel prices, and geopolitical risk factors.
+
+---
+
+## 🌐 Official Competition Portal & Details
+
+> 🔗 **Check Competition Details Here**: **[https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/)**  
+> Visit the official portal for competition schedules, live updates, announcements, FAQs, and the official confirmation submission Google Form.
+
+---
+
+## 📦 Preliminary Round Deliverables & Deadlines
+
+> **Submission Location**: Team Nexora's designated Google Drive folder  
+> **File Upload Deadline**: **22 September 2026, 5:00 PM** *(Upload all files prior to this cutoff)*  
+> **Confirmation Google Form Deadline**: **22 September 2026, 11:59 PM** *(Submit form via portal)*  
+
+| Deliverable | Official Filename | Format | Description | Dedicated Directory |
+| :--- | :--- | :---: | :--- | :---: |
+| **1. Written Report** | `Nexora_Datathon2026_Report.pdf` | `.pdf` | Max 25 pages, official DOSM front-page template, Times New Roman 12, 1.5 line spacing | [`report/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report) |
+| **2. Dashboard Package** | `Nexora_Datathon2026_Dashboard.zip` | `.zip` | Compressed package containing `Dashboard.pbix`, `Dashboard.pdf`, `Data.csv`, and `README.txt` | [`powerbi_dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard) |
+| **3. Video Presentation** | `Nexora_Datathon2026_Video.mp4` | `.mp4` | Max 10 minutes MP4 video presenting methodology, findings, and working dashboard demo | [`competition and submission/submission/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission/submission) |
 
 ---
 
@@ -9,199 +40,62 @@
 
 ```text
 nexora_dosm/
-├── README.md                                         # Project documentation & overview
-├── requirements.txt                                  # Environment dependencies
-├── .gitignore                                        # Ignored local files & caches
+├── README.md                                         # Master repository overview & navigation
+├── requirements.txt                                  # Python dependencies
+├── .gitignore                                        # Ignored temporary files & local caches
+├── competition and submission/
+│   ├── README.md                                     # Workspace hub & portal links
+│   ├── rulebook/
+│   │   ├── README.md                                 # Summary of rules, timeline & scoring rubrics
+│   │   └── Datathon 2026 - Booklet Final.pdf         # Official DOSM competition handbook (PDF)
+│   └── submission/
+│       └── README.md                                 # Preliminary round packaging guidelines & master checklist
 ├── data/
-│   ├── dosm_datathon.db                              # SQLite database (panel, time series & sources)
-│   ├── schema.sql                                    # Database table DDL & indexes
-│   ├── queries.sql                                   # SQL analytics & ML feature engineering queries
+│   ├── README.md                                     # Complete data catalog, schema & variable dictionary
+│   ├── dosm_datathon.db                              # Relational SQLite database (5 indexed tables)
+│   ├── schema.sql                                    # Database DDL table definitions & indexes
+│   ├── queries.sql                                   # 17 data viewing, auditing & feature engineering SQL queries
 │   └── excel data/
-│       └── dataset.xlsx                              # Master Excel dataset (5 sheets incl. Sources)
-├── submission/
-│   └── README.md                                     # Preliminary Round submission guidelines, packaging & checklist
-├── report/
-│   ├── README.md                                     # Report specifications & section page allocations
-│   └── doc_link.txt                                  # Collaborative OneDrive Word template link
+│       └── dataset.xlsx                              # Master Excel workbook (5 sheets incl. Sources)
 ├── machine_learning/
+│   ├── README.md                                     # Machine learning pipeline documentation
 │   ├── features/
-│   │   └── feature_engineering.py                    # Feature generation pipeline
+│   │   └── feature_engineering.py                    # Temporal lags, rolling statistics & interaction pipeline
 │   ├── models/
-│   │   ├── train.py                                  # Model training routines
-│   │   └── predict.py                                # Forecast generation for hold-out set
+│   │   ├── train.py                                  # Model training & cross-validation routines
+│   │   └── predict.py                                # Forecast generation for the hold-out evaluation set
 │   └── evaluation/
-│       ├── evaluate.py                               # Metrics (MAPE, RMSE, MAE)
-│       └── explainability.py                         # Model explainability & sensitivity
-└── powerbi_dashboard/
-    ├── Dashboard.pbix                                # Power BI interactive dashboard
-    ├── Dashboard.pdf                                 # Exported dashboard overview
-    ├── Data.csv                                      # Exported dashboard dataset
-    ├── README.txt                                    # Plain-text submission instructions
-    └── README.md                                     # Interactive dashboard documentation
+│       ├── evaluate.py                               # Validation metrics (MAPE, RMSE, MAE)
+│       └── explainability.py                         # Feature importance & sensitivity analysis
+├── powerbi_dashboard/
+│   ├── README.md                                     # Power BI staging workspace documentation
+│   ├── README.txt                                    # Plain-text user instructions for ZIP deliverable
+│   ├── Dashboard.pbix                                # Interactive Power BI report
+│   ├── Dashboard.pdf                                 # High-resolution static report export
+│   └── Data.csv                                      # Underlying flat dataset powering the visuals
+└── report/
+    ├── README.md                                     # Report specifications & section page budget allocation
+    └── doc_link.txt                                  # Collaborative OneDrive Word template link
 ```
 
 ---
 
-## 📦 Preliminary Round Deliverables & Deadlines
+## 🗂️ Core Project Modules
 
-> **Submission Location**: Team Nexora's designated Google Drive folder  
-> **Safest File Upload Deadline**: **22 September 2026, 5:00 PM**  
-> **Confirmation Google Form Deadline**: **22 September 2026, 11:59 PM**  
-> *(Finish uploading all files before 5:00 PM; do not wait until the form deadline)*
+### 1. Competition & Submission Hub ([`competition and submission/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission))
+Houses all competition-level materials organized into two subfolders:
+* **Rulebook** ([`competition and submission/rulebook/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission/rulebook)): The official DOSM competition handbook ([`Datathon 2026 - Booklet Final.pdf`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)) and quick rules reference.
+* **Submission** ([`competition and submission/submission/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/competition%20and%20submission/submission)): Preliminary round packaging guidelines, file naming conventions, upload deadlines, and verification checklist.
+Always monitor [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) for live updates.
 
-| Deliverable | Required Output File | Description | Detailed Guide |
-| :--- | :--- | :--- | :--- |
-| **1. Written Report** | `Nexora_Datathon2026_Report.pdf` | Max 25 pages, official cover template, Times New Roman 12, 1.5 line spacing | [`report/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report) |
-| **2. Dashboard Package** | `Nexora_Datathon2026_Dashboard.zip` | Compressed package: `Dashboard.pdf`, `Dashboard.pbix`, `Data.csv`, `README.txt` | [`powerbi_dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard) |
-| **3. Video Presentation** | `Nexora_Datathon2026_Video.mp4` | Max 10 minutes, MP4 format, live working dashboard demonstration | [`submission/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/submission) |
+### 2. Data Ecosystem ([`data/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/data))
+Houses the SQLite database (`dosm_datathon.db`), master Excel dataset (`dataset.xlsx`), schema DDL, and SQL queries. Complete variable definitions and data catalogs are documented in [`data/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/data/README.md).
 
-*For complete submission rules, video flow, and pre-submission checklists, see [`submission/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/submission/README.md).*
+### 3. Machine Learning ([`machine_learning/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/machine_learning))
+Modular pipeline workspace for feature engineering, model training, and performance evaluation. Module outlines and workflow structures are documented in [`machine_learning/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/machine_learning/README.md).
 
----
+### 4. Power BI Dashboard ([`powerbi_dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard))
+Staging workspace for building and packaging the interactive Power BI dashboard deliverable (`Nexora_Datathon2026_Dashboard.zip`). Staging requirements are documented in [`powerbi_dashboard/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard/README.md).
 
-## 📑 Deliverable 1: Written Project Report
-
-* **Document File**: `Nexora_Datathon2026_Report.pdf`
-* **Word Template Workspace**: [Nexora_Datathon2026_Report_Template.docx](https://1drv.ms/w/c/4be9614aa70f8b63/IQAQPik3Zq4KQbo5MU3Go8-TAT6cTaHvKwVgnpJljTzj6co?e=rVGqJI) (Stored in [`report/doc_link.txt`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report/doc_link.txt))
-* **Page Budget**: Maximum **25 pages** (excluding Front page, Table of contents, References)
-* **Typography**: Times New Roman 12 pt, 1.5 line spacing, Justified alignment
-* **Detailed Guide**: See [`report/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report/README.md)
-
-### Report Section Architecture
-1. **Front page** *(Excluded)*: Project Title, Team Nexora, Author Details, Academic Advisor
-2. **Table of contents** *(Excluded)*: Automated Table of Contents
-3. **1.0 INTRODUCTION** *(3 pages)*
-   * 1.1 Background of the Study
-   * 1.2 Problem Statement
-   * 1.3 Research Objectives
-4. **2.0 LITERATURE REVIEW** *(4 pages)*
-   * 2.1 Geopolitical risk and tourism demand
-   * 2.2 Oil Prices, Transport Costs and Tourism Demand
-   * 2.3 Exchange Rates and Malaysia’s Destination Affordability
-   * 2.4 Malaysian Tourism Resilience, Economic Conditions and SDG Alignment
-   * 2.5 Machine-Learning Approaches and Research Gap
-5. **3.0 METHODOLOGY AND DATA ANALYSIS METHODS** *(5 pages)*
-   * 3.1 Data Collection and Sources
-   * 3.2 Data Cleaning and Preprocessing
-   * 3.3 Data Integration and Harmonisation
-   * 3.4 Data Analysis Methods
-   * 3.5 Machine Learning and Artificial Intelligence Methods
-   * 3.6 Model Validation and Evaluation
-6. **4.0 FINDINGS AND RESULTS** *(8 pages)*
-   * 4.1 Machine Learning and Artificial Intelligence Results
-   * 4.2 Solution Approach
-   * 4.3 Visualisations
-7. **5.0 DASHBOARD OUTPUT** *(3 pages)*
-   * 5.1 Dashboard Overview
-   * 5.2 Dashboard Functions and Interactivity
-   * 5.3 Dashboard Visuals
-8. **6.0 CONCLUSION** *(2 pages)*
-9. **REFERENCES** *(Excluded)*
-
----
-
-## 🗄️ Database Architecture (`data/dosm_datathon.db`)
-
-The SQLite database integrates historical tourism arrivals across **20 international source markets** alongside Malaysian macroeconomic and global geopolitical risk indicators spanning **March 2017 to September 2026** (10 years).
-
-| Table Name | Source Sheet | Rows | Columns | Key Dimensions & Usage |
-| :--- | :--- | :---: | :---: | :--- |
-| **`imputed_panel_data`** | Imputed Panel Data (2) | **69,040** | **12** | Primary modeling table: tourist arrivals by country with bilateral FX rates (MYR), market segment, and train/hold-out labels. |
-| **`original_panel_data`** | Original Data (2) | **69,040** | **10** | Un-imputed ground truth panel observations. |
-| **`imputed_time_series_data`** | Imputed Time Series Data | **115** | **37** | Monthly external macroeconomic indicators: Brent Crude, RON95/RON97, Diesel, Economic Indices, and GPR indices. |
-| **`original_time_series_data`** | Original Data | **115** | **26** | Un-imputed monthly macroeconomic and geopolitical time series. |
-| **`sources`** | Sources | **49** | **17** | Data dictionary and provenance catalog mapping every variable to official source APIs, agencies, units, and derivation rules. |
-
-### Indexed Columns
-- `imputed_panel_data`: `(source_country_iso3, date)`, `(source_country_iso3, year, month)`
-- `imputed_time_series_data`: `(year, month_number)`, `(month)`
-- `original_panel_data`: `(source_country_iso3, date)`, `(source_country_iso3, year, month)`
-- `original_time_series_data`: `(year, month_number)`, `(month)`
-- `sources`: `(workbook_sheet, variable_code)`
-
----
-
-## 📊 Dataset Overview & Machine Learning Split
-
-* **Origin Markets (20 countries)**:
-  * **ASEAN (7)**: Brunei (`BRN`), Indonesia (`IDN`), Myanmar (`MMR`), Philippines (`PHL`), Singapore (`SGP`), Thailand (`THA`), Vietnam (`VNM`).
-  * **Non-ASEAN (13)**: Australia (`AUS`), Bangladesh (`BGD`), China (`CHN`), France (`FRA`), Germany (`DEU`), India (`IND`), Japan (`JPN`), Nepal (`NPL`), Pakistan (`PAK`), South Korea (`KOR`), Taiwan (`TWN`), United Kingdom (`GBR`), United States (`USA`).
-* **Dataset Partition (`model_row_status`)**:
-  * **`Training eligible`**: **67,000 rows (97.05%)** — Historical observations with published arrivals for feature engineering and model training.
-  * **`Hold out - target not published`**: **2,040 rows (2.95%)** — Evaluation horizon for generating final competition forecasts.
-
----
-
-## 🔍 Analytical & Feature Engineering SQL Suite (`data/queries.sql`)
-
-The repository includes a comprehensive 17-query SQL suite organized into three parts:
-
-### Part 1: Data Viewing & Auditing (Data Engineering Checks)
-1. **1.1 Variable Provenance & Metadata Lookup**: Inspects source agencies, APIs, and missing rates.
-2. **1.2 Panel Balance & Temporal Coverage**: Verifies equal date distribution across all 20 origin countries.
-3. **1.3 Imputation Audit**: Compares raw versus imputed time series predictors side-by-side.
-4. **1.4 Target Availability Partition**: Audits training vs. hold-out evaluation row counts.
-5. **1.5 Country & Currency Master List**: Reference lookup for origin markets and currency codes.
-
-### Part 2: Exploratory Data Analysis (EDA & Statistical Aggregations)
-6. **2.1 Source Market Volume Ranking**: Summary statistics (min, max, mean, market share %).
-7. **2.2 Seasonality Analysis**: Arrival patterns across calendar months (Jan–Dec).
-8. **2.3 Regional Dynamics**: ASEAN vs. Non-ASEAN volume comparisons over time.
-9. **2.4 Currency Exchange Rate Volatility**: Bilateral FX rates, minimums, maximums, and annual spread.
-10. **2.5 Macroeconomic Time Series**: Consolidated view of fuel prices, indices, and GPR.
-11. **2.6 Historical Benchmark**: 2019 baseline vs. recovery tracking.
-
-### Part 3: Feature Engineering (Machine Learning Preparation)
-12. **3.1 Time-Series Lag Generation**: Autoregressive lags ($t-1, t-2, t-3, t-6, t-12$) via window functions.
-13. **3.2 Rolling Window Statistics**: Trailing 3-month and 6-month moving averages & momentum ratios.
-14. **3.3 Growth Rate Indicators**: Month-over-Month (% MoM) and Year-over-Year (% YoY) growth calculations.
-15. **3.4 Interaction Terms**: Cross-features ($\text{FX} \times \text{Oil}$, Fuel-to-FX ratio, Index ratios).
-16. **3.5 Master Training Feature Matrix**: Complete joined dataset ready for `pd.read_sql()` training.
-17. **3.6 Master Hold-Out Feature Matrix**: Identical feature structure for generating competition predictions.
-
----
-
-## 🚀 Quick Start: Connecting via Python
-
-```python
-import sqlite3
-import pandas as pd
-
-# Connect to SQLite database
-conn = sqlite3.connect("data/dosm_datathon.db")
-
-# Example: Extract master training dataset with engineered lags and macroeconomic predictors
-query = """
-SELECT * 
-FROM (
-    -- Execute Query 3.5 from data/queries.sql
-    SELECT 
-        p.year, p.month, p.source_country_iso3, p.source_country_name,
-        p.market_segment, p.source_currency_code,
-        p.monthly_tourist_arrivals AS target_arrivals,
-        p.monthly_myr_per_source_currency,
-        m.brent_crude_usd_bbl, m.ron95_rm_litre_monthly_avg,
-        m.leading_index, m.gpr_global_index
-    FROM imputed_panel_data p
-    LEFT JOIN imputed_time_series_data m 
-      ON p.year = m.year AND p.month = m.month_number
-    WHERE p.model_row_status = 'Training eligible'
-    GROUP BY p.source_country_iso3, p.year, p.month
-)
-LIMIT 10;
-"""
-
-df = pd.read_sql_query(query, conn)
-print(df.head())
-conn.close()
-```
-
----
-
-## 📦 Setup & Dependencies
-
-Install dependencies using Python 3.10+:
-
-```bash
-pip install -r requirements.txt
-```
+### 5. Written Report ([`report/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report))
+Workspace for drafting the written project report (`Nexora_Datathon2026_Report.pdf`), including the collaborative Word template workspace link and formatting rules in [`report/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report/README.md).

@@ -1,93 +1,56 @@
-==============================================================================
-DOSM DATATHON 2026 - INTERACTIVE POWER BI DASHBOARD PACKAGE
-Team: Nexora
-Project: Malaysian Tourism Demand Forecasting & Macroeconomic Analytics
-Package Archive: Nexora_Datathon2026_Dashboard.zip
-==============================================================================
+================================================================================
+TEAM NEXORA - DOSM DATATHON 2026
+INTERACTIVE DASHBOARD USER GUIDE & SPECIFICATIONS
+================================================================================
 
-1. OVERVIEW & SOFTWARE REQUIREMENTS
-------------------------------------------------------------------------------
-- Dashboard File: Dashboard.pbix
-- Application: Microsoft Power BI Desktop
-- Recommended Version: September 2026 Release (or any version 2.120+ / 64-bit)
-- Static Reference Deliverable: Dashboard.pdf (High-resolution multi-page PDF)
-- Cleaned Underlying Data File: Data.csv (UTF-8 encoded flat dataset)
-- Primary Data Sources: OpenDOSM, Bank Negara Malaysia (BNM), Ministry of
-  Tourism, Arts and Culture (MOTAC), and Department of Statistics Malaysia.
+1. SOFTWARE NAME AND VERSION
+----------------------------
+* Software: Microsoft Power BI Desktop
+* Minimum Recommended Version: September 2026 release (Version 2.133+ or any recent build)
+* Compatibility: Standard 64-bit Windows installation of Power BI Desktop
 
+2. STEP-BY-STEP INSTRUCTIONS TO OPEN THE DASHBOARD
+--------------------------------------------------
+Step 1: Unzip "Nexora_Datathon2026_Dashboard.zip" into a local directory.
+Step 2: Ensure "Data.csv" and "Dashboard.pbix" reside in the same folder.
+Step 3: Double-click "Dashboard.pbix" to open the interactive report in 
+        Microsoft Power BI Desktop.
+Step 4: If Power BI prompts for data refresh or file path confirmation, navigate
+        to Home > Transform Data > Data Source Settings, select "Data.csv" 
+        from the local folder, and click "Apply Changes".
+Step 5: Alternatively, view "Dashboard.pdf" for a high-resolution, static 
+        view of all completed dashboard canvas pages.
 
-2. STEP-BY-STEP: HOW TO OPEN THE DASHBOARD
-------------------------------------------------------------------------------
-Step 1: Ensure Microsoft Power BI Desktop is installed on your Windows machine
-        (Power BI Desktop is available free from Microsoft Store / web).
-Step 2: Double-click 'Dashboard.pbix', or launch Power BI Desktop and select:
-        File -> Open report -> Browse reports -> select 'Dashboard.pbix'.
-Step 3: The data model is pre-packaged and self-contained (Import Mode).
-        When prompted, click 'Load' or 'Apply Changes'. No cloud gateway or
-        enterprise credentials are required.
-Step 4: (Optional) If you wish to re-point to 'Data.csv' from a different folder:
-        Go to: Home -> Transform Data -> Data source settings -> Change Source,
-        browse to the location of 'Data.csv', and click 'Close & Apply'.
-Step 5: For quick offline review, static evaluation, or printing, open
-        'Dashboard.pdf'.
+3. USER NAVIGATION GUIDE
+------------------------
+* Slicers & Filters: Use top and left navigation panels to slice arrivals 
+  by Source Country (20 international markets), Market Segment (ASEAN vs. 
+  Non-ASEAN), and observation timeline (2017 to 2026).
+* Cross-Filtering: Clicking any visual element (bar, map bubble, line point) 
+  will dynamically cross-filter all linked charts across the canvas.
+* Tooltips: Hover over any data point to display granular monthly metrics, 
+  bilateral exchange rates (MYR/FX), fuel prices, and geopolitical risk indices.
+* Reset: Click the "Reset Filters" bookmark button located at the top-right 
+  of any page to return to default views.
 
+4. REQUIRED PLUGINS OR ADD-ONS
+------------------------------
+* Required Add-ons: None (0 external dependencies).
+* Visual Libraries: All visuals are 100% native out-of-the-box Power BI charts 
+  (Native Line Charts, Clustered Column Charts, Matrix, Treemaps, and Azure Map 
+  visuals). No custom marketplace visuals or unverified third-party scripts are 
+  required.
 
-3. DASHBOARD ARCHITECTURE & HOW TO NAVIGATE
-------------------------------------------------------------------------------
-The dashboard contains four dedicated analytical pages accessible via the left
-navigation pane or page tabs along the bottom:
-
-Page 1: Executive Overview & Tourism Recovery
-  - High-level KPIs: Total Tourist Arrivals, Year-over-Year (YoY) Growth %,
-    ASEAN vs. Non-ASEAN Contribution %, and Recovery Ratio vs 2019 Pre-Pandemic.
-  - Interactive slicers: Filter by Year (2017 - 2026) and Month.
-
-Page 2: Origin Market Dynamics (ASEAN vs. Non-ASEAN)
-  - Drill-down across 20 international source markets (7 ASEAN, 13 Non-ASEAN).
-  - Country-level ranking charts, market share breakdown, and seasonality heatmaps.
-  - Cross-filtering: Click on any country bar or segment tile to cross-filter
-    all charts on the page simultaneously.
-
-Page 3: Macroeconomic & Geopolitical Drivers
-  - Analysis of bilateral exchange rates (MYR per source currency).
-  - Energy price indicators: Brent crude (USD/bbl) and domestic fuel (RON95/RON97).
-  - Geopolitical Risk Index (GPR) trends and their correlation with arrival dips.
-
-Page 4: Predictive Analytics & Scenario Simulator
-  - Machine learning model forecasts vs. historical actuals.
-  - Interactive What-If parameters: Test tourism demand response to FX changes
-    and transport cost fluctuations.
-  - Hold-out evaluation window projection tracking.
-
-
-4. USER INTERACTION & CONTROLS
-------------------------------------------------------------------------------
-- Slicers: Located in the top header and filter panel (Year, Month, Market, Country).
-- Interactive Cross-Filtering: Selecting any data point or bar on any visual
-  dynamically highlights and filters all related visuals on that page.
-- Tooltips: Hover your cursor over any data point to reveal rich contextual details,
-  exact figures, percentage shares, and growth rates.
-- Reset Filters: Click the 'Reset All Filters' bookmark button at the top right
-  of any page to return to the default overview state.
-
-
-5. REQUIRED PLUGINS, ADD-ONS & DEPENDENCIES
-------------------------------------------------------------------------------
-- Zero external, proprietary, or paid plugins required.
-- 100% native Microsoft Power BI core visual components (Clustered Bar,
-  Line & Clustered Column, Matrix, KPI Cards, Decomposition Tree, Slicers).
-- Fully compliant with the Datathon competition requirement to run smoothly
-  and without error on any judge's workstation.
-
-
-6. ASSUMPTIONS & TECHNICAL LIMITATIONS
-------------------------------------------------------------------------------
-- Temporal Coverage: Spans March 2017 to September 2026.
-- Observation Granularity: Monthly aggregate arrivals across 20 source countries.
-- Hold-out Split: Historical observations up to the training cutoff are marked
-  'Training eligible'; post-cutoff observations are reserved for scoring.
-- Currency Valuation: All foreign exchange rates are bilateral averages against
-  the Malaysian Ringgit (MYR) sourced from Bank Negara Malaysia (BNM).
-- Imputation Transparency: Imputed indicators reflect the audited dataset with
-  full metadata provenance recorded in the repository's data catalog.
-==============================================================================
+5. ASSUMPTIONS AND LIMITATIONS
+------------------------------
+* Data Coverage: Monthly panel from March 2017 to September 2026.
+* Forecasting Horizon: October 2024 to September 2026 represents the official 
+  hold-out evaluation period where arrival figures are predicted using the 
+  machine learning models.
+* Currency Rates: Bilateral exchange rates represent monthly averages published 
+  by Bank Negara Malaysia (BNM).
+* Geopolitical Risk: GPR indices represent Caldara & Iacoviello monthly benchmark 
+  indices.
+* Offline Self-Containment: The data model is completely embedded in the .PBIX 
+  file cache and requires no active live database connection to operate.
+================================================================================

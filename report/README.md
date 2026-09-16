@@ -1,8 +1,13 @@
 # Written Project Report — DOSM Datathon 2026
 
 **Team Name**: Nexora  
+**Competition**: DOSM Datathon 2026  
+**Theme**: Leveraging Machine Learning (ML) & Artificial Intelligence (AI) for Sustainable Tourism in Malaysia  
+**Group Focus**: Tourism Demand Forecasting, Macroeconomic Impact & Geopolitical Risk Analytics  
 **Deliverable**: Preliminary Round Written Project Report  
 **Submission Filename**: `Nexora_Datathon2026_Report.pdf`  
+**Official Competition Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Check for competition announcements & submission links)*  
+**Official Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](../competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)  
 
 ---
 
