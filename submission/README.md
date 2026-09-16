@@ -68,6 +68,8 @@ Your designated Google Drive folder must contain exactly these three deliverable
 ### 🗜️ Submission Filename
 `Nexora_Datathon2026_Dashboard.zip`
 
+*Local Workspace Directory*: [`powerbi_dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard) (contains ready-to-package files and [`README.txt`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard/README.txt))
+
 ### 📂 Required Package Contents
 Compress the following four items into the single ZIP file:
 

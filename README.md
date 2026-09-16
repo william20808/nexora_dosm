@@ -23,7 +23,7 @@ nexora_dosm/
 ├── report/
 │   ├── README.md                                     # Report specifications & section page allocations
 │   └── doc_link.txt                                  # Collaborative OneDrive Word template link
-├── src/
+├── machine_learning/
 │   ├── features/
 │   │   └── feature_engineering.py                    # Feature generation pipeline
 │   ├── models/
@@ -32,11 +32,12 @@ nexora_dosm/
 │   └── evaluation/
 │       ├── evaluate.py                               # Metrics (MAPE, RMSE, MAE)
 │       └── explainability.py                         # Model explainability & sensitivity
-└── dashboard/
+└── powerbi_dashboard/
     ├── Dashboard.pbix                                # Power BI interactive dashboard
     ├── Dashboard.pdf                                 # Exported dashboard overview
     ├── Data.csv                                      # Exported dashboard dataset
-    └── README.txt                                    # Dashboard notes
+    ├── README.txt                                    # Plain-text submission instructions
+    └── README.md                                     # Interactive dashboard documentation
 ```
 
 ---
@@ -51,7 +52,7 @@ nexora_dosm/
 | Deliverable | Required Output File | Description | Detailed Guide |
 | :--- | :--- | :--- | :--- |
 | **1. Written Report** | `Nexora_Datathon2026_Report.pdf` | Max 25 pages, official cover template, Times New Roman 12, 1.5 line spacing | [`report/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report) |
-| **2. Dashboard Package** | `Nexora_Datathon2026_Dashboard.zip` | Compressed package: `Dashboard.pdf`, `Dashboard.pbix`, `Data.csv`, `README.txt` | [`dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/dashboard) |
+| **2. Dashboard Package** | `Nexora_Datathon2026_Dashboard.zip` | Compressed package: `Dashboard.pdf`, `Dashboard.pbix`, `Data.csv`, `README.txt` | [`powerbi_dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard) |
 | **3. Video Presentation** | `Nexora_Datathon2026_Video.mp4` | Max 10 minutes, MP4 format, live working dashboard demonstration | [`submission/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/submission) |
 
 *For complete submission rules, video flow, and pre-submission checklists, see [`submission/README.md`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/submission/README.md).*
