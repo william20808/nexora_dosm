@@ -3,7 +3,7 @@
 **Theme**: Leveraging Machine Learning (ML) & Artificial Intelligence (AI) for Sustainable Tourism in Malaysia  
 **Team**: Nexora  
 **Group Focus**: Tourism Demand Forecasting, Macroeconomic Impact & Geopolitical Risk Analytics  
-**Problem Statement**: How does the geopolitical affect the tourism industry in malaysia? 
+**Problem Statement**: How does geopolitical risk affect the tourism industry in Malaysia? 
 
 **Organiser**: Department of Statistics Malaysia (DOSM)  
 **Official Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Official updates, announcements & forms)*  
