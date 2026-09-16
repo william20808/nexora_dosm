@@ -1,21 +1,22 @@
 # Written Project Report — DOSM Datathon 2026
 
+**Team Name**: Nexora  
 **Deliverable**: Preliminary Round Written Project Report  
-**Submission Filename**: `Nexora_Datathon2026_Report.pdf`
+**Submission Filename**: `Nexora_Datathon2026_Report.pdf`  
 
 ---
 
-## 🔗 Collaborative Editing Link
+## 🔗 Collaborative Editing Workspace
 
-* **Word Document Editing Link**: [Nexora_Datathon2026_Report_Template.docx](https://1drv.ms/w/c/4be9614aa70f8b63/IQAQPik3Zq4KQbo5MU3Go8-TAT6cTaHvKwVgnpJljTzj6co?e=rVGqJI)
-* **Link File**: [`doc_link.txt`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report/doc_link.txt)
+* **Live Word Document**: [Nexora_Datathon2026_Report_Template.docx](https://1drv.ms/w/c/4be9614aa70f8b63/IQAQPik3Zq4KQbo5MU3Go8-TAT6cTaHvKwVgnpJljTzj6co?e=rVGqJI)
+* **Link Record**: [`doc_link.txt`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report/doc_link.txt)
 
 ---
 
-## 📋 General Requirements
+## 📋 General Formatting Requirements
 
 * **Format**: PDF format (`Nexora_Datathon2026_Report.pdf`)
-* **Cover Page**: Use the official report / front-page template provided by DOSM
+* **Cover Page**: Use official DOSM Datathon 2026 report / front-page template
 * **Page Limit**: Maximum **25 pages**, excluding:
   * Front page
   * Table of contents
@@ -26,28 +27,32 @@
 
 ---
 
-## 📑 Report Structure & Guidelines
+## 📑 Report Structure & Page Allocation
 
-| Section | Suggested Pages | What to Include |
+The structure below reflects the official section breakdown and the sections established in [Nexora_Datathon2026_Report_Template.docx](https://1drv.ms/w/c/4be9614aa70f8b63/IQAQPik3Zq4KQbo5MU3Go8-TAT6cTaHvKwVgnpJljTzj6co?e=rVGqJI):
+
+| Section | Suggested Pages | Key Subsections & Topics |
 | :--- | :---: | :--- |
-| **Front page** | *Excluded* | Use DOSM's provided template |
-| **Table of contents** | *Excluded* | Automatic page numbers |
-| **1. Introduction** | **3** | Tourism background, specific problem, target users, 2–4 measurable objectives |
-| **2. Literature review** | **4** | Previous studies/solutions, relevant indicators, research gap |
-| **3. Methodology** | **5** | Data sources, cleaning, variables, analysis process, ML/AI model, evaluation metrics |
-| **4. Findings** | **8** | Results, model performance, trends, maps/charts, insights and implications<br>*(Includes: ML/AI results, Solution approach, Visualisations)* |
-| **5. Output: Dashboard** | **3** | Dashboard design, users, KPIs, filters, features and screenshots |
-| **6. Conclusion** | **2** | Answer objectives, recommendations, impact, limitations and future improvements |
-| **References** | *Excluded* | Datasets, articles, software, libraries and pretrained models |
+| **Front page** | *Excluded* | Project Title, Team Name (Nexora), Member Details, Institution, Academic Advisor, Submission Date |
+| **Table of contents** | *Excluded* | Automated Table of Contents with page numbers |
+| **1.0 INTRODUCTION** | **3** | **1.1 Background of the Study**<br>**1.2 Problem Statement**<br>**1.3 Research Objectives** |
+| **2.0 LITERATURE REVIEW** | **4** | **2.1 Geopolitical risk and tourism demand**<br>**2.2 Oil Prices, Transport Costs and Tourism Demand**<br>**2.3 Exchange Rates and Malaysia’s Destination Affordability**<br>**2.4 Malaysian Tourism Resilience, Economic Conditions and SDG Alignment**<br>**2.5 Machine-Learning Approaches and Research Gap** |
+| **3.0 METHODOLOGY AND DATA ANALYSIS METHODS** | **5** | **3.1 Data Collection and Sources**<br>**3.2 Data Cleaning and Preprocessing**<br>**3.3 Data Integration and Harmonisation**<br>**3.4 Data Analysis Methods**<br>**3.5 Machine Learning and Artificial Intelligence Methods**<br>**3.6 Model Validation and Evaluation** |
+| **4.0 FINDINGS AND RESULTS** | **8** | **4.1 Machine Learning and Artificial Intelligence Results**<br>**4.2 Solution Approach**<br>**4.3 Visualisations** |
+| **5.0 DASHBOARD OUTPUT** | **3** | **5.1 Dashboard Overview**<br>**5.2 Dashboard Functions and Interactivity**<br>**5.3 Dashboard Visuals** |
+| **6.0 CONCLUSION** | **2** | Summary answering research objectives, policy recommendations, impact, limitations and future improvements |
+| **REFERENCES** | *Excluded* | Comprehensive references for datasets, articles, software, libraries, and pretrained models |
 
 ---
 
 ## ✅ Submission Checklist
 
-- [ ] Used official DOSM report / front-page template
-- [ ] Exported as PDF (`Nexora_Datathon2026_Report.pdf`)
-- [ ] Maximum 25 pages (excluding Front page, Table of contents, and References)
-- [ ] Times New Roman font, size 12
-- [ ] 1.5 line spacing
-- [ ] Justified text alignment
-- [ ] Included all required sections and topics
+- [ ] Front page completed with Project Title, Team Nexora, Member names, and Academic Advisor
+- [ ] Table of contents automatically updated with final page numbers
+- [ ] Maximum 25 pages for Core Sections 1.0 to 6.0 combined
+- [ ] Times New Roman, Size 12 font throughout
+- [ ] 1.5 line spacing applied to body text
+- [ ] Justified text alignment applied
+- [ ] All 6 core sections and subsections addressed
+- [ ] References formatted consistently
+- [ ] Exported as `Nexora_Datathon2026_Report.pdf`
