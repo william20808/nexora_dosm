@@ -51,7 +51,7 @@ Each observation represents a monthly record for a specific international origin
 
 | Variable Name | Data Type | Description & Meaning |
 | :--- | :---: | :--- |
-| **`date`** | `TEXT` | Calendar observation date in `YYYY-MM-DD` format (first day of each month from 2017-03-01 to 2026-09-01). |
+| **`date`** | `TEXT` | Calendar observation date in `YYYY-MM-DD` format, stored **daily** (2017-03-30 to 2026-09-10, 3,452 distinct dates). The monthly measures (`monthly_tourist_arrivals`, `monthly_myr_per_source_currency`) are **repeated identically across every day within a month** — the true grain is country-month (20 countries x 115 months = 2,300). Collapse to one row per (country, year, month) before analysis; aggregating the raw daily rows will multiply monthly values by the number of days. |
 | **`source_country_iso3`** | `TEXT` | 3-letter ISO 3166-1 alpha-3 code identifying the origin market (e.g., `SGP`, `IDN`, `CHN`, `AUS`). |
 | **`source_country_name`** | `TEXT` | Full English name of the source market (e.g., Singapore, Indonesia, China, Australia). |
 | **`source_currency_code`** | `TEXT` | 3-letter ISO 4217 currency code of the source market (e.g., `SGD`, `IDR`, `CNY`, `AUD`, `USD`). |
