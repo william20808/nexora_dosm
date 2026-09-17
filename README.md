@@ -60,7 +60,7 @@ nexora_dosm/
 │   │   ├── train.py                                  # Model training & cross-validation routines
 │   │   └── predict.py                                # Forecast generation for the hold-out evaluation set
 │   └── evaluation/
-│       ├── evaluate.py                               # Validation metrics (MAPE, RMSE, MAE)
+│       ├── evaluate.py                               # Validation metrics (MAE, RMSE; MAPE deliberately not used)
 │       └── explainability.py                         # Feature importance & sensitivity analysis
 ├── powerbi_dashboard/
 │   ├── README.md                                     # Power BI staging workspace documentation

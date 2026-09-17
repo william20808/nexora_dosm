@@ -48,16 +48,34 @@ Each simulated forecast origin may only use data actually published by then.
 - **No-leakage rule (row-level):** a training row is used only if its target
   month was published by the validation origin — not merely if its origin was
   earlier. This closes the horizon-overlap leak that a fixed origin-gap missed.
+- **Training-eligibility parity (not a leakage control):** backtest folds apply
+  the SAME eligibility rule as final training — rows need a full 12-month
+  arrivals history. Note this is distinct from the no-future-information
+  controls above: those cold-start rows contained only past and contemporaneous
+  data and were genuinely available at every origin, so their earlier inclusion
+  was a **backtest-deployment training-eligibility mismatch**, not leakage. It
+  was material nonetheless (12-17% of primary-fold and up to 35% of stress-fold
+  training rows), because it meant the backtest measured a more data-rich
+  procedure than the one actually deployed.
 - **Metrics:** MAE and RMSE, per horizon. MAPE avoided (near-zero small-market
   months inflate it).
 
 ## 5. Models compared (no more, per lecturer)
 - Naive-last, Seasonal-naive (baselines), Ridge + GPR×country, LightGBM.
-- **Deployed:** LightGBM (most consistently competitive; Ridge collapses under
-  the COVID break). Ridge retained only for interpretable GPR×country
-  coefficients.
-- **Champion-by-horizon rejected:** inter-model gaps are small and unstable
-  across folds/lag assumptions — switching per horizon would fit noise.
+- **Deployed:** LightGBM, selected on **aggregate MAE pooled across all primary
+  backtest predictions** (15,969 vs Ridge 16,727, Naive-last 17,188,
+  Seasonal-naive 22,702) and aggregate RMSE (36,043, also lowest). This is the
+  criterion that matches the deployed design: one pooled model makes all 80
+  forecasts, so total error across all predictions is what matters.
+- **The choice is defensible, not decisive.** On rank-based criteria Ridge is
+  ahead (7 of 20 fold x horizon cell wins vs LightGBM's 4; mean rank 2.15 vs
+  2.30), and LightGBM has the worst single-cell MAE (38,329 vs Ridge 33,129).
+  Per-horizon MAE is split: LightGBM best at h1-h2, Seasonal-naive marginally
+  best at h3 (21,191 vs 21,504), Ridge marginally best at h4 (20,775 vs 20,983).
+  Report LightGBM as competitive everywhere, not as clearly superior.
+- **Champion-by-horizon rejected:** the h2-h4 margins are 100-313 arrivals,
+  well inside fold-level noise across only five folds — switching per horizon
+  would fit noise.
 
 ## 6. Feature set (locked, 19 + 1 categorical)
 Curated from a fuller set; pruning to 18 cost +16–19% MAE at horizon 2, so
@@ -76,21 +94,32 @@ sign and magnitude, and an earlier draft of this document conflated them:
 |---|---|---|
 | Raw pooled correlation, GPR vs arrivals | **+0.079** | Unadjusted association across all country-months. Weakly positive. |
 | Within-country (demeaned) correlation | **+0.134** | Removes fixed differences in market size. Still weakly positive. |
-| **Ridge GPR coefficient (controlled)** | **−2,083** (USA reference, standardized) | Association **after** controlling for arrivals history, seasonality, FX, oil and the other features. **Negative.** |
+| **Ridge GPR slope (controlled)** | **−2,084** arrivals per 1 SD of GPR (USA reference) | Association **after** controlling for arrivals history, seasonality, FX, oil and the other features. **Negative.** |
 
-The raw association is weakly **positive** while the controlled coefficient is
-**negative**, and 17 of 20 country total slopes are negative (SGP, IDN, CHN are
-the three positive outliers). This reversal is not a contradiction — it is what
-controlling for confounders does. The most likely driver is shared time trend:
-over the sample, GPR is strongly trending (corr with time **+0.54**) while
-arrivals recovered post-COVID, so an uncontrolled comparison mixes the trend in;
-the lag/seasonality features absorb that trend, leaving a negative partial
+The raw association is weakly **positive** while the controlled slope is
+**negative**, and **16 of 20** country slopes are negative (SGP, IDN, CHN are
+the positive outliers; THA sits essentially at zero, +297). This reversal is not
+a contradiction — it is what controlling for confounders does. The most likely
+driver is shared time trend: over the sample, GPR is strongly trending (corr
+with time **+0.54**) while arrivals recovered post-COVID, so an uncontrolled
+comparison mixes the trend in; the most likely explanation is that the
+lag/seasonality features absorb that trend, leaving a negative partial
 association.
 
-**Correction note:** an earlier version of this document described the main GPR
-effect as *positive* and attributed it to "GPR falling as arrivals recovered."
-Both halves were wrong — the controlled coefficient is negative, and GPR *rose*
-over the sample rather than falling. The table above supersedes that wording.
+**Coefficient recovery (important).** StandardScaler scales each column by its
+own SD, and the interaction columns `gpr_x_<country>` have ~0.59x the SD of the
+base `gpr_global_index` column. Standardized coefficients are therefore in
+different units and must NOT be summed directly. Slopes are recovered in raw
+feature space (coef_raw = coef_std / scale) and then summed, and reported per
+1 SD of GPR for cross-market comparability. This was verified independently by
+perturbation: raising GPR by exactly 1 SD with all other inputs held fixed
+reproduces each reported slope with max discrepancy 0.0 across all 20 markets.
+
+**Correction note:** earlier versions of this document (a) described the main GPR
+effect as *positive*, attributing it to "GPR falling as arrivals recovered" —
+both halves wrong, since the controlled slope is negative and GPR *rose*; and
+(b) reported 17 of 20 negative slopes from an invalid summation of differently
+scaled standardized coefficients. The corrected figure is 16 of 20.
 
 **The two tools:**
 - **Ridge GPR×country**, USA as dropped reference → identifiable per-country

@@ -40,6 +40,18 @@ def feature_importance(train):
 
 
 def ridge_gpr_by_country(train):
+    """Per-country GPR slopes from a Ridge model with GPR x country interactions.
+
+    COEFFICIENT RECOVERY (important): StandardScaler scales every column by its
+    own standard deviation. The base column `gpr_global_index` and the
+    interaction columns `gpr_x_<country>` have DIFFERENT scales (the
+    interactions are zero for ~95% of rows, so their SD is ~0.59x the base).
+    Standardized coefficients are therefore in different units and must NOT be
+    added directly. We first convert back to raw feature space
+    (coef_raw = coef_std / scale), then sum base + interaction, which is a
+    valid slope in arrivals-per-GPR-point. We also report the slope per one
+    standard deviation of GPR, which is the comparable unit across markets.
+    """
     ref = config.RIDGE_REFERENCE_COUNTRY
     countries = sorted(train["source_country_iso3"].unique())
     non_ref = [c for c in countries if c != ref]
@@ -49,17 +61,26 @@ def ridge_gpr_by_country(train):
     cd = pd.get_dummies(train["source_country_iso3"], prefix="c")[[f"c_{c}" for c in non_ref]]
     X = pd.concat([X.reset_index(drop=True), cd.reset_index(drop=True)], axis=1)
     X = X.fillna(X.median(numeric_only=True))
-    Xs = StandardScaler().fit_transform(X)
+
+    scaler = StandardScaler()
+    Xs = scaler.fit_transform(X)
     m = Ridge(alpha=config.RIDGE_ALPHA).fit(Xs, train["target_arrivals"])
-    coef = pd.Series(m.coef_, index=X.columns)
-    base = coef["gpr_global_index"]
+
+    scales = pd.Series(scaler.scale_, index=X.columns)
+    coef_raw = pd.Series(m.coef_, index=X.columns) / scales   # back to raw space
+    base_raw = coef_raw["gpr_global_index"]
+    gpr_sd = train["gpr_global_index"].std()
+
     rows = []
     for c in countries:
-        inter = 0.0 if c == ref else coef.get(f"gpr_x_{c}", 0.0)
+        inter_raw = 0.0 if c == ref else coef_raw.get(f"gpr_x_{c}", 0.0)
+        slope_raw = base_raw + inter_raw
         seg = train.loc[train["source_country_iso3"] == c, "market_segment"].iloc[0]
-        rows.append((c, seg, inter, base + inter))
-    out = pd.DataFrame(rows, columns=["source_country_iso3", "market_segment",
-                                      "gpr_interaction_vs_USA", "total_standardized_gpr_slope"])
+        rows.append((c, seg, inter_raw, slope_raw, slope_raw * gpr_sd))
+    out = pd.DataFrame(rows, columns=[
+        "source_country_iso3", "market_segment",
+        "gpr_interaction_vs_USA_raw", "gpr_slope_raw_per_index_point",
+        "gpr_slope_arrivals_per_1sd_gpr"])
     out.to_csv(config.OUTPUT_DIR / "gpr_country_ridge_interaction.csv", index=False)
     return out
 
