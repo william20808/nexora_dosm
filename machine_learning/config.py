@@ -15,7 +15,7 @@ from pathlib import Path
 # --- Paths (resolved relative to the repo root, two levels up from this file) ---
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = REPO_ROOT / "data" / "dosm_datathon.db"
-XLSX_FALLBACK = REPO_ROOT / "data" / "final_deliveries_dataset.xlsx"
+XLSX_FALLBACK = REPO_ROOT / "data" / "excel data" / "final_deliveries_dataset.xlsx"
 
 ML_DIR = Path(__file__).resolve().parent
 ARTIFACT_DIR = ML_DIR / "artifacts"
@@ -38,6 +38,13 @@ L_ARRIVALS_SENSITIVITY = 3
 # Per-variable publication lags (months). See report:
 # "documented publication schedules where available and conservative lag
 #  assumptions where exact release timing could not be verified."
+#
+# MEI = 3, not 2, deliberately. DOSM's VERIFIED release cycle is ~2 months
+# (reference month M published around the 20th-25th of M+2). Because our
+# periods are month-granular and a forecast can be made at any point within a
+# month, a value for month M is only *guaranteed* available from the start of
+# M+3. Using 3 is the conservative, month-boundary-safe encoding of the
+# verified ~2-month cycle -- it never assumes data we might not have.
 VARIABLE_LAGS = {
     "gpr_global_index": 1, "gpr_malaysia_index": 1, "brent_crude_usd_bbl": 1,
     "leading_index": 3, "coincident_index": 3, "lagging_index": 3,

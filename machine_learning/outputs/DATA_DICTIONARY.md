@@ -71,8 +71,11 @@ in-sample fit overstates skill and had no legitimate dashboard use.
 MAE/RMSE by L_arrivals x fold_set (primary / stress_covid) x horizon x model.
 **This is the source for any accuracy claim.**
 Headline: LightGBM is the most consistently competitive model, but only modestly
-ahead of simple baselines — seasonal-naive is marginally better at horizon 3.
-Do NOT claim ML clearly dominates at longer horizons.
+ahead of simple baselines at SHORT horizons (h1: 12,653 vs naive 12,752 — within
+1%). At h3-h4 the margin is real: LightGBM 19,380 vs naive-last 25,157 and
+seasonal-naive 21,191 at h3, and better on RMSE at every horizon.
+Do NOT overstate this as ML "solving" forecasting — h1-h2 is near-tied with a
+trivial baseline, and no model beats naive persistence under the COVID break.
 
 ## 5. lightgbm_feature_importance.csv
 20 rows = the 19 numeric features + source_country_iso3. feature, importance
@@ -107,5 +110,6 @@ Shows the model-selection conclusion is stable to the lag assumption.
 - Never label any total as "Malaysia total arrivals" — it is 20 markets.
 - Never present in-sample fit as forecasting accuracy — use the backtest tables.
 - Never say lags are "verified" — use the approved wording above.
-- Never claim ML clearly dominates baselines at horizons 3-4.
+- Never claim ML dominates at SHORT horizons (h1-h2 is near-tied with naive-last).
+- Never present the h3-h4 advantage without the COVID stress-test caveat.
 - Never describe GPR x country or SHAP results as causal country sensitivity.

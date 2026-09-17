@@ -79,8 +79,10 @@ Every output column: **`outputs/DATA_DICTIONARY.md`**.
 ## Key results (see outputs/ for exact numbers)
 
 - LightGBM is the **most consistently competitive** model, but only **modestly**
-  ahead of simple baselines; seasonal-naive is marginally better at horizon 3.
-  **Do not claim ML clearly dominates at longer horizons.**
+  ahead of simple baselines at short horizons (h1 within ~1% of naive-last), but
+  meaningfully better at h3-h4 (h3: 19,380 vs naive-last 25,157, seasonal-naive
+  21,191), and better on RMSE at every horizon.
+  **Do not overstate:** h1-h2 is near-tied with a trivial baseline.
 - Under the COVID structural break, no model reliably beats naive persistence.
 - The model-selection conclusion is **stable** across both lag assumptions.
 

@@ -1,8 +1,18 @@
 # ML pipeline dependencies (Python 3.10+)
-pandas>=2.0
-numpy>=1.24
-scikit-learn>=1.3
-lightgbm>=4.0
-shap>=0.44
-joblib>=1.3
-openpyxl>=3.1   # only needed for the .xlsx fallback loader
+#
+# Pinned to the exact versions used to generate the committed outputs in
+# machine_learning/outputs/ and the artifact in machine_learning/artifacts/.
+# Pinning (rather than minimum bounds) is what makes the committed forecasts
+# byte-reproducible: LightGBM's tree construction and scikit-learn's solvers
+# can change between minor versions.
+#
+# If you need to relax a pin, re-run `python -m machine_learning.run_pipeline`
+# and confirm forecast_future_2026.csv is unchanged before committing.
+
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+lightgbm==4.7.0
+shap==0.52.0
+joblib==1.5.3
+openpyxl==3.1.5   # only needed for the .xlsx fallback loader

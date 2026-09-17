@@ -68,13 +68,43 @@ input (categorical). "19-feature model" and "20 model inputs" both refer to
 this same model.
 
 ## 7. GPR interpretation (two tools, both non-causal)
+
+**Three distinct quantities — do not conflate them.** They genuinely differ in
+sign and magnitude, and an earlier draft of this document conflated them:
+
+| Quantity | Value | What it is |
+|---|---|---|
+| Raw pooled correlation, GPR vs arrivals | **+0.079** | Unadjusted association across all country-months. Weakly positive. |
+| Within-country (demeaned) correlation | **+0.134** | Removes fixed differences in market size. Still weakly positive. |
+| **Ridge GPR coefficient (controlled)** | **−2,083** (USA reference, standardized) | Association **after** controlling for arrivals history, seasonality, FX, oil and the other features. **Negative.** |
+
+The raw association is weakly **positive** while the controlled coefficient is
+**negative**, and 17 of 20 country total slopes are negative (SGP, IDN, CHN are
+the three positive outliers). This reversal is not a contradiction — it is what
+controlling for confounders does. The most likely driver is shared time trend:
+over the sample, GPR is strongly trending (corr with time **+0.54**) while
+arrivals recovered post-COVID, so an uncontrolled comparison mixes the trend in;
+the lag/seasonality features absorb that trend, leaving a negative partial
+association.
+
+**Correction note:** an earlier version of this document described the main GPR
+effect as *positive* and attributed it to "GPR falling as arrivals recovered."
+Both halves were wrong — the controlled coefficient is negative, and GPR *rose*
+over the sample rather than falling. The table above supersedes that wording.
+
+**The two tools:**
 - **Ridge GPR×country**, USA as dropped reference → identifiable per-country
-  slopes. The pooled main GPR effect is positive, almost certainly a spurious
-  co-movement with the post-COVID recovery trend — **not** behavioural.
+  slopes (`gpr_country_ridge_interaction.csv`). Read as *controlled partial
+  associations*, not behavioural responses.
 - **LightGBM + SHAP**, mean |SHAP| of GPR features by country: raw (dominated by
   market size) and **normalized by each market's average arrival volume**
-  (noisy/inflated for small-base markets). Both are model-attributed
-  contribution, **not causal country sensitivity**.
+  (noisy/inflated for small-base markets). SHAP magnitude is unsigned — it
+  measures *how much* the model leans on GPR, not *in which direction*.
+
+**Neither is causal.** Both are single-model, associational attributions from
+observational data with no identification strategy. Do not claim GPR *causes*
+differential arrivals responses, or that any country is *causally* more
+GPR-sensitive.
 
 ## 8. Reproducibility
 `python -m machine_learning.run_pipeline` regenerates the model and every output
@@ -87,3 +117,14 @@ finalized 80 forecasts exactly (0 difference) from a clean repo clone.
   reliability is below what backtest metrics on fully-resolved history imply.
 - FX has no source-fill flag in the workbook (observed-vs-imputed not auditable).
 - Forecasts cover 20 markets only, not all-Malaysia arrivals.
+- **Conservative exogenous treatment is a deliberate simplification.** Three
+  choices trade a little potential accuracy for defensibility, and each could be
+  revisited with more time: (a) MEI lag is encoded as 3 months rather than the
+  verified ~2, to stay safe at month boundaries; (b) all 5 MEI indices were
+  ultimately dropped from the final feature set, so Malaysia's official
+  leading/coincident indicators contribute nothing to the forecast — a real
+  information loss, accepted because availability-capping left them stale at the
+  horizons where they would have mattered; (c) exogenous predictors enter as
+  single-month levels, with no distributed lags, differences or interactions
+  beyond GPR×country. A richer exogenous specification is the most obvious
+  avenue for future improvement.
