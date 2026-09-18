@@ -155,10 +155,27 @@ def split_train_and_live(horizon_table: pd.DataFrame):
 
 def make_backtest_fold(horizon_table: pd.DataFrame, val_origin):
     """Row-level, availability-aware fold: a training row is usable iff its own
-    target month is known by val_origin (no arbitrary gap)."""
+    target month is known by val_origin (no arbitrary gap).
+
+    IMPORTANT: this applies the SAME training-eligibility rule as
+    split_train_and_live (rows must have a full 12-month arrivals history).
+    Without it the backtest evaluates a MORE DATA-RICH procedure than the one
+    actually deployed -- 12-17% of primary-fold rows and up to 35% of
+    stress-fold rows are cold-start rows the final model never sees.
+
+    NOTE ON TERMINOLOGY: this is a backtest-deployment training-eligibility
+    mismatch, NOT data leakage. Cold-start rows contain only past and
+    contemporaneous information and were genuinely available at every simulated
+    origin. It is distinct from the two real no-future-information controls:
+    (1) the target_period <= val_origin rule below, and (2) per-variable
+    publication-lag capping of exogenous features in build_horizon_table.
+    """
     vo = pd.Timestamp(val_origin)
+    eligible = horizon_table["arrivals_lag_12m"].notna()
     train = horizon_table[(horizon_table["target_period"] <= vo)
-                          & (horizon_table["target_arrivals"].notna())]
+                          & (horizon_table["target_arrivals"].notna())
+                          & eligible]
     val = horizon_table[(horizon_table["period"] == vo)
-                        & (horizon_table["target_arrivals"].notna())]
+                        & (horizon_table["target_arrivals"].notna())
+                        & eligible]
     return train, val

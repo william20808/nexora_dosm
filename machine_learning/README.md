@@ -65,7 +65,7 @@ aware**: each predictor is sourced from the freshest month that would actually
 have been published at forecast time, using per-variable publication lags
 (`config.VARIABLE_LAGS`). The arrivals publication lag is an assumption
 (`L_arrivals`, primary = 4 months, sensitivity = 3). The model is validated by a
-**rolling-origin backtest** with a row-level, no-leakage rule (a training row is
+**rolling-origin backtest** with a row-level, no-future-information rule (a training row is
 used only if its target month was known at the simulated forecast date), on a
 **normal-period** fold set and a separate **COVID stress-test** fold set, scored
 by **MAE and RMSE per horizon**. Baselines (naive-last, seasonal-naive) and a
@@ -78,11 +78,12 @@ Every output column: **`outputs/DATA_DICTIONARY.md`**.
 
 ## Key results (see outputs/ for exact numbers)
 
-- LightGBM is the **most consistently competitive** model, but only **modestly**
-  ahead of simple baselines at short horizons (h1 within ~1% of naive-last), but
-  meaningfully better at h3-h4 (h3: 19,380 vs naive-last 25,157, seasonal-naive
-  21,191), and better on RMSE at every horizon.
-  **Do not overstate:** h1-h2 is near-tied with a trivial baseline.
+- LightGBM is deployed on the basis of **aggregate MAE pooled across all primary
+  backtest predictions** (15,969; Ridge 16,727, Naive-last 17,188,
+  Seasonal-naive 22,702) — the criterion matching the single-pooled-model design.
+- **It is not best at every horizon.** LightGBM leads at h1-h2; Seasonal-naive is
+  marginally best at h3 (21,191 vs 21,504) and Ridge at h4 (20,775 vs 20,983).
+  Margins at h2-h4 are 100-313 arrivals, inside fold-level noise.
 - Under the COVID structural break, no model reliably beats naive persistence.
 - The model-selection conclusion is **stable** across both lag assumptions.
 

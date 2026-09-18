@@ -70,12 +70,18 @@ in-sample fit overstates skill and had no legitimate dashboard use.
 ## 4. backtest_accuracy_by_horizon.csv — the accuracy metrics
 MAE/RMSE by L_arrivals x fold_set (primary / stress_covid) x horizon x model.
 **This is the source for any accuracy claim.**
-Headline: LightGBM is the most consistently competitive model, but only modestly
-ahead of simple baselines at SHORT horizons (h1: 12,653 vs naive 12,752 — within
-1%). At h3-h4 the margin is real: LightGBM 19,380 vs naive-last 25,157 and
-seasonal-naive 21,191 at h3, and better on RMSE at every horizon.
-Do NOT overstate this as ML "solving" forecasting — h1-h2 is near-tied with a
-trivial baseline, and no model beats naive persistence under the COVID break.
+Headline: LightGBM was selected on AGGREGATE MAE pooled across all primary
+backtest predictions (15,969 vs Ridge 16,727, Naive-last 17,188, Seasonal-naive
+22,702), which is the criterion matching the single-pooled-model design.
+Per-horizon MAE (primary, L=4) is split:
+  h1  LightGBM 11,817 | Naive-last 12,752 | Ridge 12,117 | Seasonal-naive 23,802
+  h2  LightGBM  9,571 | Naive-last  9,671 | Ridge  9,757 | Seasonal-naive 20,404
+  h3  LightGBM 21,504 | Naive-last 25,157 | Ridge 24,258 | Seasonal-naive 21,191
+  h4  LightGBM 20,983 | Naive-last 21,171 | Ridge 20,775 | Seasonal-naive 25,413
+LightGBM is best at h1-h2; Seasonal-naive is marginally best at h3 and Ridge
+marginally best at h4 (margins of 100-313 arrivals, inside fold-level noise).
+Do NOT claim LightGBM is best at every horizon, and do NOT overstate this as ML
+"solving" forecasting — no model beats naive persistence under the COVID break.
 
 ## 5. lightgbm_feature_importance.csv
 20 rows = the 19 numeric features + source_country_iso3. feature, importance
@@ -83,7 +89,21 @@ trivial baseline, and no model beats naive persistence under the COVID break.
 
 ## 6. gpr_country_ridge_interaction.csv
 Ridge with GPR x country interaction, USA as reference (identifiable).
-gpr_interaction_vs_USA, total_standardized_gpr_slope.
+
+SCHEMA CHANGED — old columns `gpr_interaction_vs_USA` and
+`total_standardized_gpr_slope` no longer exist. Current columns:
+- source_country_iso3, market_segment
+- gpr_interaction_vs_USA_raw: this market's interaction term in RAW feature
+  space (0 for USA by construction)
+- gpr_slope_raw_per_index_point: full slope, arrivals per 1 GPR index point
+- gpr_slope_arrivals_per_1sd_gpr: full slope per 1 standard deviation of GPR —
+  USE THIS for cross-market comparison and for any visual
+
+Slopes are recovered in raw space before summing base + interaction, because
+the standardized columns have different scales (~0.59x) and cannot be added.
+Verified by perturbation (max discrepancy 0.0 across all 20 markets).
+16 of 20 markets have a negative slope; SGP, IDN, CHN are positive; THA is
+essentially zero (+297 arrivals per 1 SD).
 **Caveat (must accompany any use):** the pooled GPR effect is likely confounded
 with the post-COVID recovery trend; not causal, not verified behaviour.
 
@@ -110,6 +130,6 @@ Shows the model-selection conclusion is stable to the lag assumption.
 - Never label any total as "Malaysia total arrivals" — it is 20 markets.
 - Never present in-sample fit as forecasting accuracy — use the backtest tables.
 - Never say lags are "verified" — use the approved wording above.
-- Never claim ML dominates at SHORT horizons (h1-h2 is near-tied with naive-last).
+- Never claim LightGBM is best at every horizon — it is not (h3, h4 go to other models).
 - Never present the h3-h4 advantage without the COVID stress-test caveat.
 - Never describe GPR x country or SHAP results as causal country sensitivity.
