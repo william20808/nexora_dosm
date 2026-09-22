@@ -4,7 +4,7 @@ machine_learning/data_loader.py
 Loads the two raw sources (country panel, national time series) from the repo
 SQLite DB, falling back to the .xlsx workbook if the DB is absent. Returns the
 raw frames unchanged; all cleaning/collapsing happens in
-features/feature_engineering.py so the loader has one job only.
+feature_engineering.py so the loader has one job only.
 """
 
 import sqlite3

@@ -1,5 +1,5 @@
 """
-machine_learning/evaluation/evaluate.py
+machine_learning/evaluate.py
 
 Rolling-origin, availability-aware backtest for all four candidate models
 (Naive-last, Seasonal-naive, Ridge+GPRxCountry, LightGBM), across both lag
@@ -13,7 +13,7 @@ assumptions and both fold sets (primary / COVID stress). Writes:
 Metrics are MAE and RMSE (per lecturer guidance). Reported PER HORIZON, never
 pooled into a single number.
 
-Run:  python -m machine_learning.evaluation.evaluate
+Run:  python -m machine_learning.evaluate
 """
 
 import warnings; warnings.filterwarnings("ignore")
@@ -23,8 +23,8 @@ import lightgbm as lgb
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import StandardScaler
 
-from .. import config
-from ..features.feature_engineering import build_horizon_table, make_backtest_fold
+from . import config
+from .feature_engineering import build_horizon_table, make_backtest_fold
 
 
 def _lgbm(train, val):
