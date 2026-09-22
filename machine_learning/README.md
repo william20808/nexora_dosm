@@ -71,8 +71,9 @@ used only if its target month was known at the simulated forecast date), on a
 by **MAE and RMSE per horizon**. Baselines (naive-last, seasonal-naive) and a
 Ridge model with GPR×country interactions are compared but not deployed.
 
-Full reasoning and every methodology decision: **`docs/METHODOLOGY.md`**.
-Every output column: **`outputs/DATA_DICTIONARY.md`**.
+The forecasting methodology is summarized above and implemented in the pipeline modules.
+The consolidated data dictionary is available at **`DATA_DICTIONARY.md`**; the
+pipeline-output copy remains at **`outputs/DATA_DICTIONARY.md`**.
 
 ---
 

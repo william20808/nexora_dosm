@@ -7,7 +7,7 @@ Loads the trained artifact and produces the Power BI handoff tables:
 
 Historical actuals are kept SEPARATE from anything horizon-indexed so a
 dashboard can never double-count by summing a target month that repeats across
-horizons. See docs/METHODOLOGY.md.
+horizons. See machine_learning/README.md.
 
 Run:  python -m machine_learning.models.predict
 """

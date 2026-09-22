@@ -2,7 +2,7 @@
 machine_learning/features/feature_engineering.py
 
 Turns the two raw sources into the pooled, direct multi-horizon modelling
-table. See docs/METHODOLOGY.md for the full reasoning; the essentials:
+table. See machine_learning/README.md for the methodology summary; the essentials:
 
 1. COLLAPSE: the raw country panel stores one row per country per calendar DAY,
    but the monthly measures repeat across every day of the month. We collapse
