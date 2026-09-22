@@ -47,7 +47,7 @@ Step 5: Alternatively, view "Dashboard.pdf" for a high-resolution, static
 * Data Coverage: Monthly panel from March 2017 to September 2026 for international 
   tourist arrivals; annual state-level hotel occupancy and domestic visitor panel 
   from 2017 to 2025 across 16 Malaysian states and federal territories.
-* Forecasting Horizon: October 2024 to September 2026 represents the official 
+* Forecasting Horizon: June 2026 to September 2026 represents the official 
   hold-out evaluation period where arrival figures are predicted using the 
   machine learning models.
 * Currency Rates: Bilateral exchange rates represent monthly averages published 
