@@ -16,7 +16,7 @@
 * **Word Document**: [`Nexora_Datathon2026_Report.docx`](./Nexora_Datathon2026_Report.docx)
 * **Presentation Slides**: [`Nexora_Datathon2026_Presentation_Slide.pptx`](./Nexora_Datathon2026_Presentation_Slide.pptx)
 
-The submitted PDF has 28 physical pages: one cover page, two table-of-contents pages, 22 counted report pages, and three reference pages. The editable DOCX and submitted PDF contain matching text and pagination.
+The submitted PDF has 29 physical pages: one cover page, two table-of-contents pages, 23 counted report pages, and three reference pages. The editable DOCX and submitted PDF contain matching text and pagination.
 
 ---
 
@@ -56,7 +56,7 @@ The structure below reflects the official section breakdown and the sections est
 
 - [x] Front page completed with Project Title, Team Nexora, Member names, and Academic Advisor
 - [x] Table of contents updated with final page numbers
-- [x] Core Sections 1.0 to 6.0 occupy 22 pages, within the 25-page limit
+- [x] Core Sections 1.0 to 6.0 occupy 23 pages, within the 25-page limit
 - [x] Times New Roman, 12 pt body font
 - [x] 1.5 line spacing applied to body text
 - [x] Justified body text alignment
