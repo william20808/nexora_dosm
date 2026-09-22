@@ -1,4 +1,4 @@
-# ML pipeline dependencies (Python 3.10+)
+# ML pipeline dependencies (Python 3.12+)
 #
 # Pinned to the exact versions used to generate the committed outputs in
 # machine_learning/outputs/ and the artifact in machine_learning/artifacts/.
