@@ -1,4 +1,4 @@
-# Written Project Report — DOSM Datathon 2026
+# Report and Presentation Materials — DOSM Datathon 2026
 
 **Team Name**: Nexora  
 **Competition**: DOSM Datathon 2026  
@@ -11,9 +11,10 @@
 
 ---
 
-## 📝 Editable Report
+## 📝 Editable Materials
 
 * **Word Document**: [`Nexora_Datathon2026_Report.docx`](./Nexora_Datathon2026_Report.docx)
+* **Presentation Slides**: [`Nexora_Datathon2026_Presentation_Slide.pptx`](./Nexora_Datathon2026_Presentation_Slide.pptx)
 
 The submitted PDF has 28 physical pages: one cover page, two table-of-contents pages, 22 counted report pages, and three reference pages. The editable DOCX and submitted PDF contain matching text and pagination.
 

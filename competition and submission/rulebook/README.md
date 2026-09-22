@@ -36,7 +36,7 @@ Always verify the latest announcements, schedules, FAQs, and submission Google F
 | Section | Key Guidance & Rule Set | Repository Reference |
 | :--- | :--- | :--- |
 | **Eligibility & Registration** | Open to registered teams (Team **Nexora**). | [`README.md`](../../README.md) |
-| **Deliverable 1: Report** | `Nexora_Datathon2026_Report.pdf`: Max 25 pages (excluding cover, TOC, references), Times New Roman 12, 1.5 spacing, justified. | [`report/`](../../report/) |
+| **Deliverable 1: Report** | `Nexora_Datathon2026_Report.pdf`: Max 25 pages (excluding cover, TOC, references), Times New Roman 12, 1.5 spacing, justified. | [`report and slide/`](../../report%20and%20slide/) |
 | **Deliverable 2: Dashboard** | `Nexora_Datathon2026_Dashboard.zip`: Contains `Dashboard.pdf`, `Dashboard.pbix`, `Data.xlsx`, and `README.txt`. | [`powerbi_dashboard/`](../../powerbi_dashboard/) |
 | **Deliverable 3: Video** | `Nexora_Datathon2026_Video.mp4`: Strict 10-minute maximum MP4 presentation including live dashboard demo. | [`submission/`](../submission/) |
 | **Preliminary Deadlines** | **File Upload**: 22 September 2026, 5:00 PM (Google Drive)<br>**Confirmation Form**: 22 September 2026, 11:59 PM | [`SUBMISSION_README.md`](./SUBMISSION_README.md) |

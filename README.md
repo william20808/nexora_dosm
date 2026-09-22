@@ -30,7 +30,7 @@ Final submission artifacts are stored in [`competition and submission/submission
 | Dashboard package | `Nexora_Datathon2026_Dashboard.zip` | Power BI dashboard, static PDF, source data, and usage instructions |
 | Video presentation | `Nexora_Datathon2026_Video.mp4` | Final 8-minute 46-second, 1080p presentation video |
 
-The editable report is maintained separately at [`report/Nexora_Datathon2026_Report.docx`](report/Nexora_Datathon2026_Report.docx).
+The editable report and presentation deck are maintained in [`report and slide/`](report%20and%20slide/).
 
 ---
 
@@ -74,9 +74,10 @@ nexora_dosm/
 │   ├── Data.xlsx
 │   ├── README.md
 │   └── README.txt
-└── report/
+└── report and slide/
     ├── README.md
-    └── Nexora_Datathon2026_Report.docx
+    ├── Nexora_Datathon2026_Report.docx
+    └── Nexora_Datathon2026_Presentation_Slide.pptx
 ```
 
 ---
@@ -108,9 +109,9 @@ The [`machine_learning/`](machine_learning/) directory contains feature engineer
 
 The [`powerbi_dashboard/`](powerbi_dashboard/) directory contains the editable Power BI report, static PDF export, consolidated Excel data source, and dashboard instructions.
 
-### Written Report
+### Report and Presentation Slides
 
-The [`report/`](report/) directory contains the editable DOCX and report guidance. The final PDF is stored with the official deliverables in the submission directory.
+The [`report and slide/`](report%20and%20slide/) directory contains the editable report DOCX, presentation PPTX, and report guidance. The final report PDF is stored with the official deliverables in the submission directory.
 
 ### Competition Materials
 
