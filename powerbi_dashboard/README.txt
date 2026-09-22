@@ -12,11 +12,11 @@ INTERACTIVE DASHBOARD USER GUIDE & SPECIFICATIONS
 2. STEP-BY-STEP INSTRUCTIONS TO OPEN THE DASHBOARD
 --------------------------------------------------
 Step 1: Unzip "Nexora_Datathon2026_Dashboard.zip" into a local directory.
-Step 2: Ensure "Data.csv" and "Dashboard.pbix" reside in the same folder.
+Step 2: Ensure "Data.xlsx" and "Dashboard.pbix" reside in the same folder.
 Step 3: Double-click "Dashboard.pbix" to open the interactive report in 
         Microsoft Power BI Desktop.
 Step 4: If Power BI prompts for data refresh or file path confirmation, navigate
-        to Home > Transform Data > Data Source Settings, select "Data.csv" 
+        to Home > Transform Data > Data Source Settings, select "Data.xlsx" 
         from the local folder, and click "Apply Changes".
 Step 5: Alternatively, view "Dashboard.pdf" for a high-resolution, static 
         view of all completed dashboard canvas pages.
