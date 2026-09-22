@@ -1,5 +1,5 @@
 """
-machine_learning/features/feature_engineering.py
+machine_learning/feature_engineering.py
 
 Turns the two raw sources into the pooled, direct multi-horizon modelling
 table. See machine_learning/README.md for the methodology summary; the essentials:
@@ -25,8 +25,8 @@ table. See machine_learning/README.md for the methodology summary; the essential
 import numpy as np
 import pandas as pd
 
-from .. import config
-from ..data_loader import load_country_panel, load_macro_series
+from . import config
+from .data_loader import load_country_panel, load_macro_series
 
 MACRO_FEATURE_COLS = [
     "gpr_global_index", "gpr_malaysia_index", "brent_crude_usd_bbl",

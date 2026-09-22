@@ -1,5 +1,5 @@
 """
-machine_learning/models/predict.py
+machine_learning/predict.py
 
 Loads the trained artifact and produces the Power BI handoff tables:
   - outputs/historical_actuals.csv   (one row per country-month; NO horizon)
@@ -9,16 +9,16 @@ Historical actuals are kept SEPARATE from anything horizon-indexed so a
 dashboard can never double-count by summing a target month that repeats across
 horizons. See machine_learning/README.md.
 
-Run:  python -m machine_learning.models.predict
+Run:  python -m machine_learning.predict
 """
 
 import numpy as np
 import pandas as pd
 import joblib
 
-from .. import config
-from ..features.feature_engineering import (build_monthly_panel, build_horizon_table,
-                                            split_train_and_live)
+from . import config
+from .feature_engineering import (build_monthly_panel, build_horizon_table,
+                                  split_train_and_live)
 
 COVERAGE = "20 modelled source markets only; NOT all-Malaysia total"
 
@@ -26,7 +26,7 @@ COVERAGE = "20 modelled source markets only; NOT all-Malaysia total"
 def _load_artifact():
     path = config.ARTIFACT_DIR / "lightgbm_final.joblib"
     if not path.exists():
-        raise FileNotFoundError(f"{path} not found. Run `python -m machine_learning.models.train` first.")
+        raise FileNotFoundError(f"{path} not found. Run `python -m machine_learning.train` first.")
     return joblib.load(path)
 
 

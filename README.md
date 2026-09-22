@@ -62,10 +62,12 @@ nexora_dosm/
 │   ├── DATA_DICTIONARY.md
 │   ├── config.py
 │   ├── data_loader.py
+│   ├── feature_engineering.py
+│   ├── train.py
+│   ├── predict.py
+│   ├── evaluate.py
+│   ├── explainability.py
 │   ├── run_pipeline.py
-│   ├── features/
-│   ├── models/
-│   ├── evaluation/
 │   ├── artifacts/
 │   └── outputs/
 ├── powerbi_dashboard/

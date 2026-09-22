@@ -1,18 +1,18 @@
 """
-machine_learning/models/train.py
+machine_learning/train.py
 
 Trains the final, locked model: a single pooled LightGBM (direct multi-horizon,
 19 features + source_country_iso3 categorical) on ALL available history, and
 persists it to artifacts/ so predict.py can load it without retraining.
 
-Run:  python -m machine_learning.models.train
+Run:  python -m machine_learning.train
 """
 
 import joblib
 import lightgbm as lgb
 
-from .. import config
-from ..features.feature_engineering import build_horizon_table, split_train_and_live
+from . import config
+from .feature_engineering import build_horizon_table, split_train_and_live
 
 
 def train_final_model(prefer_db=True, L_arrivals=None):

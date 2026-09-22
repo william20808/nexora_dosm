@@ -1,5 +1,5 @@
 """
-machine_learning/evaluation/explainability.py
+machine_learning/explainability.py
 
 Interpretation outputs (NONE of these are causal -- see caveats in the data
 dictionary and report):
@@ -8,7 +8,7 @@ dictionary and report):
   outputs/gpr_country_ridge_interaction.csv      Ridge GPR x country (USA-referenced, identifiable)
   outputs/shap_gpr_contribution_by_country.csv   mean |SHAP| of GPR features, raw + volume-normalized
 
-Run:  python -m machine_learning.evaluation.explainability
+Run:  python -m machine_learning.explainability
 """
 
 import warnings; warnings.filterwarnings("ignore")
@@ -19,8 +19,8 @@ import shap
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import StandardScaler
 
-from .. import config
-from ..features.feature_engineering import build_horizon_table, split_train_and_live
+from . import config
+from .feature_engineering import build_horizon_table, split_train_and_live
 
 
 def _train_frame():
