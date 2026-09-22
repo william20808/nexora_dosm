@@ -1,11 +1,12 @@
-# 📊 Power BI Dashboard
+# Power BI dashboard submission
 
-This directory is used for building and staging the interactive Microsoft Power BI dashboard deliverable (`Nexora_Datathon2026_Dashboard.zip`) for Team **Nexora** in the DOSM Datathon 2026.
+This directory stages Team Nexora's DOSM Datathon 2026 dashboard package.
 
-### Staged Deliverable Files
-- **`Dashboard.pbix`**: Interactive Power BI report with dynamic slicers, market cross-filtering, state-level hospitality drill-downs, and scenario analysis.
-- **`Dashboard.pdf`**: Static document view of all completed dashboard pages for offline evaluation.
-- **`Data.csv`**: Cleaned tabular dataset extracted from `data/dosm_datathon.db` (country arrivals & state-level hotel performance) powering the visuals.
-- **`README.txt`**: Required plain-text user instructions and navigation guide packaged into the ZIP deliverable.
+The final ZIP must contain these four files at its root:
 
-All charts are built with native Power BI visuals to run smoothly without external plugins.
+- `Dashboard.pdf` - static export of the four dashboard pages.
+- `Dashboard.pbix` - interactive Microsoft Power BI report.
+- `Data.xlsx` - consolidated monthly source data, forecasts, backtests, model diagnostics, feature importance, and GPR contribution tables.
+- `README.txt` - required software, opening and navigation instructions, add-ons, assumptions, and limitations.
+
+The report covers 20 modelled source markets. Forecast totals are therefore not an all-Malaysia international-arrivals total. All report visuals are native Power BI visuals and require no external add-ons.
