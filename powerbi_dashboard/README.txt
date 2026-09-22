@@ -23,30 +23,30 @@ Step 5: Alternatively, view "Dashboard.pdf" for a high-resolution, static
 
 3. USER NAVIGATION GUIDE
 ------------------------
-* Slicers & Filters: Use top and left navigation panels to slice arrivals 
-  by Source Country (20 international markets), Market Segment (ASEAN vs. 
-  Non-ASEAN), Malaysian State (16 states/territories), and observation timeline (2017 to 2026).
-* Cross-Filtering: Clicking any visual element (bar, map bubble, line point) 
-  will dynamically cross-filter all linked charts across the canvas.
-* Tooltips: Hover over any data point to display granular monthly metrics, 
-  bilateral exchange rates (MYR/FX), fuel prices, geopolitical risk indices, 
-  and state hotel occupancy / domestic visitor statistics.
-* Reset: Click the "Reset Filters" bookmark button located at the top-right 
-  of any page to return to default views.
+* Slicers & Filters: Available on the "Malaysia Tourism Overview" and 
+  "Tourism Drivers" pages only. Users can slice arrivals by Source 
+  Country (20 international markets) and Market Segment 
+  (ASEAN vs. Non-ASEAN).
+* Cross-Filtering: Clicking any visual element (bar, donut segment, 
+  line point) will dynamically cross-filter all linked charts on 
+  the same canvas page.
+* Tooltips: Hover over any data point to display granular monthly 
+  metrics, bilateral exchange rates (MYR/FX), Brent crude oil prices, 
+  and geopolitical risk indices.
 
 4. REQUIRED PLUGINS OR ADD-ONS
 ------------------------------
 * Required Add-ons: None (0 external dependencies).
-* Visual Libraries: All visuals are 100% native out-of-the-box Power BI charts 
-  (Native Line Charts, Clustered Column Charts, Matrix, Treemaps, and Azure Map 
-  visuals). No custom marketplace visuals or unverified third-party scripts are 
-  required.
+* Visual Libraries: All visuals are 100% native out-of-the-box Power BI 
+  charts (Clustered Bar/Column Charts, Line Charts, Line-and-Clustered-
+  Column Combo Charts, Donut Chart, Card, Slicer, Textbox). No custom 
+  marketplace visuals, maps, treemaps, matrices, or unverified 
+  third-party scripts are used.
 
 5. ASSUMPTIONS AND LIMITATIONS
 ------------------------------
 * Data Coverage: Monthly panel from March 2017 to September 2026 for international 
-  tourist arrivals; annual state-level hotel occupancy and domestic visitor panel 
-  from 2017 to 2025 across 16 Malaysian states and federal territories.
+  tourist arrivals
 * Forecasting Horizon: June 2026 to September 2026 represents the official 
   hold-out evaluation period where arrival figures are predicted using the 
   machine learning models.
