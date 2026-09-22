@@ -1,33 +1,36 @@
 # 🇲🇾 DOSM Datathon 2026
 
-**Theme**: Leveraging Machine Learning (ML) & Artificial Intelligence (AI) for Sustainable Tourism in Malaysia  
+**Project**: Geopolitical Risk and International Tourism Demand in Malaysia: A Machine Learning Forecasting Framework for 20 Source Markets  
 **Team**: Nexora  
-**Group Focus**: Tourism Demand Forecasting, Macroeconomic Impact & Geopolitical Risk Analytics  
-**Problem Statement**: How does geopolitical risk affect the tourism industry in Malaysia? 
-
+**Theme**: Leveraging Machine Learning and Artificial Intelligence for Sustainable Tourism in Malaysia  
+**Focus**: Tourism demand forecasting, economic drivers, and geopolitical-risk analytics  
 **Organiser**: Department of Statistics Malaysia (DOSM)  
-**Official Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Official updates, announcements & forms)*  
-**Competition Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf)
+**Official Portal**: [datathon.dosm.gov.my](https://datathon.dosm.gov.my/)  
+**Competition Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)
 
 ---
 
-## 🎯 Executive Overview
+## 🎯 Project Overview
 
-This repository houses the analytical models, data engineering pipelines, interactive Power BI dashboard workspace, and preliminary round submission documentation for **Team Nexora**. The project integrates a 10-year monthly dataset (March 2017 to September 2026) spanning **20 international source markets** alongside an annual state-level hospitality panel (**16 Malaysian states and territories**, 2017–2025) to model and forecast tourism demand patterns in Malaysia under the influence of bilateral exchange rates, global fuel prices, and geopolitical risk factors.
+This project evaluates the predictive relationship between geopolitical risk and international tourism demand in Malaysia. It combines monthly arrivals from 20 modelled source markets with bilateral exchange rates, geopolitical-risk indices, energy prices, lagged demand, and seasonal features.
+
+The machine-learning pipeline produces one-to-four-month forecasts using a pooled direct multi-horizon LightGBM model. Its performance is compared with naive-last, seasonal-naive, and Ridge-regression benchmarks through rolling-origin backtesting. Results are presented in an interactive Power BI dashboard and documented in the written project report.
+
+All aggregated arrival figures refer only to the 20 modelled source markets and must not be interpreted as Malaysia's complete international-arrival total.
 
 ---
 
-## 📦 Preliminary Round Deliverables & Deadlines
+## 📦 Submission Deliverables
 
-> **Submission Location**: Team Nexora's designated Google Drive folder  
-> **File Upload Deadline**: **22 September 2026, 5:00 PM** *(Upload all files prior to this cutoff)*  
-> **Confirmation Google Form Deadline**: **22 September 2026, 11:59 PM** *(Submit form via portal)*  
+Final submission artifacts are stored in [`competition and submission/submission/`](competition%20and%20submission/submission/).
 
-| Deliverable | Official Filename | Format | Description | Dedicated Directory |
-| :--- | :--- | :---: | :--- | :---: |
-| **1. Written Report** | `Nexora_Datathon2026_Report.pdf` | `.pdf` | Max 25 pages, official DOSM front-page template, Times New Roman 12, 1.5 line spacing | [`report/`](report) |
-| **2. Dashboard Package** | `Nexora_Datathon2026_Dashboard.zip` | `.zip` | Compressed package containing `Dashboard.pbix`, `Dashboard.pdf`, `Data.csv`, and `README.txt` | [`powerbi_dashboard/`](powerbi_dashboard) |
-| **3. Video Presentation** | `Nexora_Datathon2026_Video.mp4` | `.mp4` | Max 10 minutes MP4 video presenting methodology, findings, and working dashboard demo | [`competition and submission/submission/`](competition and submission/submission) |
+| Deliverable | Official filename | Description |
+| :--- | :--- | :--- |
+| Written report | `Nexora_Datathon2026_Report.pdf` | Final competition report in PDF format |
+| Dashboard package | `Nexora_Datathon2026_Dashboard.zip` | Power BI dashboard, static PDF, source data, and usage instructions |
+| Video presentation | `Nexora_Datathon2026_Video.mp4` | Required presentation video; add when finalized |
+
+The editable report is maintained separately at [`report/Nexora_Datathon2026_Report.docx`](report/Nexora_Datathon2026_Report.docx).
 
 ---
 
@@ -35,62 +38,79 @@ This repository houses the analytical models, data engineering pipelines, intera
 
 ```text
 nexora_dosm/
-├── README.md                                         # Master repository overview & navigation
-├── requirements.txt                                  # Python dependencies
-├── .gitignore                                        # Ignored temporary files & local caches
+├── README.md
+├── requirements.txt
 ├── competition and submission/
-│   ├── README.md                                     # Workspace hub & portal links
+│   ├── README.md
 │   ├── rulebook/
-│   │   ├── README.md                                 # Summary of rules, timeline & scoring rubrics
-│   │   └── Datathon 2026 - Booklet Final.pdf         # Official DOSM competition handbook (PDF)
+│   │   ├── README.md
+│   │   ├── SUBMISSION_README.md
+│   │   └── Datathon 2026 - Booklet Final.pdf
 │   └── submission/
-│       └── README.md                                 # Preliminary round packaging guidelines & master checklist
+│       ├── Nexora_Datathon2026_Report.pdf
+│       └── Nexora_Datathon2026_Dashboard.zip
 ├── data/
-│   ├── README.md                                     # Complete data catalog, schema & variable dictionary
-│   ├── dosm_datathon.db                              # Relational SQLite database (6 indexed tables & 3 views)
-│   ├── schema.sql                                    # Database DDL table definitions, indexes & views
-│   ├── queries.sql                                   # 20 data viewing, auditing & feature engineering SQL queries
+│   ├── README.md
+│   ├── dosm_datathon.db
+│   ├── schema.sql
+│   ├── queries.sql
 │   └── excel data/
-│       └── final_deliveries_dataset.xlsx             # Master Excel workbook (6 sheets incl. Sources)
+│       └── final_deliveries_dataset.xlsx
 ├── machine_learning/
-│   ├── README.md                                     # Machine learning pipeline documentation
+│   ├── README.md
+│   ├── DATA_DICTIONARY.md
+│   ├── config.py
+│   ├── data_loader.py
+│   ├── run_pipeline.py
 │   ├── features/
-│   │   └── feature_engineering.py                    # Temporal lags, rolling statistics & interaction pipeline
 │   ├── models/
-│   │   ├── train.py                                  # Model training & cross-validation routines
-│   │   └── predict.py                                # Forecast generation for the hold-out evaluation set
-│   └── evaluation/
-│       ├── evaluate.py                               # Validation metrics (MAE, RMSE; MAPE deliberately not used)
-│       └── explainability.py                         # Feature importance & sensitivity analysis
+│   ├── evaluation/
+│   ├── artifacts/
+│   └── outputs/
 ├── powerbi_dashboard/
-│   ├── README.md                                     # Power BI staging workspace documentation
-│   ├── README.txt                                    # Plain-text user instructions for ZIP deliverable
-│   ├── Dashboard.pbix                                # Interactive Power BI report
-│   ├── Dashboard.pdf                                 # High-resolution static report export
-│   └── Data.csv                                      # Underlying flat dataset powering the visuals
+│   ├── Dashboard.pbix
+│   ├── Dashboard.pdf
+│   ├── Data.xlsx
+│   ├── README.md
+│   └── README.txt
 └── report/
-    ├── README.md                                     # Report specifications & section page budget allocation
-    └── doc_link.txt                                  # Collaborative OneDrive Word template link
+    ├── README.md
+    └── Nexora_Datathon2026_Report.docx
 ```
 
 ---
 
-## 🗂️ Core Project Modules
+## 🤖 Reproducing the Machine Learning Pipeline
 
-### 1. Competition & Submission Hub ([`competition and submission/`](competition and submission))
-Houses all competition-level materials organized into two subfolders:
-* **Rulebook** ([`competition and submission/rulebook/`](competition and submission/rulebook)): The official DOSM competition handbook ([`Datathon 2026 - Booklet Final.pdf`](competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf)) and quick rules reference.
-* **Submission** ([`competition and submission/submission/`](competition and submission/submission)): Preliminary round packaging guidelines, file naming conventions, upload deadlines, and verification checklist.
-Always monitor [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) for live updates.
+Install the pinned dependencies and run the complete workflow from the repository root:
 
-### 2. Data Ecosystem ([`data/`](data))
-Houses the SQLite database (`dosm_datathon.db`), master Excel dataset (`final_deliveries_dataset.xlsx`), schema DDL, and SQL query suite. The repository integrates monthly country arrivals (20 source markets), macroeconomic and geopolitical time series, and 16-state annual hotel performance data (2017–2025). Complete variable definitions and data catalogs are documented in [`data/README.md`](data/README.md).
+```bash
+pip install -r requirements.txt
+python -m machine_learning.run_pipeline
+```
 
-### 3. Machine Learning ([`machine_learning/`](machine_learning))
-Modular pipeline workspace for feature engineering, model training, and performance evaluation. Module outlines and workflow structures are documented in [`machine_learning/README.md`](machine_learning/README.md).
+The pipeline reads `data/dosm_datathon.db`, regenerates the tables in `machine_learning/outputs/`, and writes the trained model to `machine_learning/artifacts/`. See [`machine_learning/README.md`](machine_learning/README.md) for the methodology summary, validation design, and detailed commands. Column definitions are documented in [`machine_learning/DATA_DICTIONARY.md`](machine_learning/DATA_DICTIONARY.md).
 
-### 4. Power BI Dashboard ([`powerbi_dashboard/`](powerbi_dashboard))
-Staging workspace for building and packaging the interactive Power BI dashboard deliverable (`Nexora_Datathon2026_Dashboard.zip`). Staging requirements are documented in [`powerbi_dashboard/README.md`](powerbi_dashboard/README.md).
+---
 
-### 5. Written Report ([`report/`](report))
-Workspace for drafting the written project report (`Nexora_Datathon2026_Report.pdf`), including the collaborative Word template workspace link and formatting rules in [`report/README.md`](report/README.md).
+## 📊 Project Components
+
+### Data
+
+The [`data/`](data/) directory contains the SQLite database, schema, reusable SQL queries, and source Excel workbook. Its contents cover monthly source-market arrivals, exchange rates, geopolitical-risk indicators, energy prices, and supporting Malaysian tourism data.
+
+### Machine Learning
+
+The [`machine_learning/`](machine_learning/) directory contains feature engineering, model training, forecasting, evaluation, explainability, generated outputs, and the consolidated data dictionary.
+
+### Power BI Dashboard
+
+The [`powerbi_dashboard/`](powerbi_dashboard/) directory contains the editable Power BI report, static PDF export, consolidated Excel data source, and dashboard instructions.
+
+### Written Report
+
+The [`report/`](report/) directory contains the editable DOCX and report guidance. The final PDF is stored with the official deliverables in the submission directory.
+
+### Competition Materials
+
+The [`competition and submission/rulebook/`](competition%20and%20submission/rulebook/) directory contains the official booklet, rule summary, and submission guide. The [`submission/`](competition%20and%20submission/submission/) directory contains only final submission artifacts.
