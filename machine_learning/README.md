@@ -38,7 +38,7 @@ python -m machine_learning.evaluation.explainability  # -> outputs/lightgbm_feat
 ```text
 machine_learning/
 ├── README.md                     # this file
-├── requirements.txt              # pinned dependencies
+├── DATA_DICTIONARY.md            # output schemas, metric definitions, and reporting guardrails
 ├── config.py                     # ALL settings: paths, feature list, hyperparameters, lags, folds
 ├── data_loader.py                # reads data/dosm_datathon.db (xlsx fallback)
 ├── run_pipeline.py               # one command to run the whole workflow
@@ -72,8 +72,7 @@ by **MAE and RMSE per horizon**. Baselines (naive-last, seasonal-naive) and a
 Ridge model with GPR×country interactions are compared but not deployed.
 
 The forecasting methodology is summarized above and implemented in the pipeline modules.
-The consolidated data dictionary is available at **`DATA_DICTIONARY.md`**; the
-pipeline-output copy remains at **`outputs/DATA_DICTIONARY.md`**.
+The consolidated data dictionary is available at **`DATA_DICTIONARY.md`**.
 
 ---
 

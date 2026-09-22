@@ -20,7 +20,9 @@ competition and submission/
 │   ├── Datathon 2026 - Booklet Final.pdf # Official DOSM competition handbook (PDF)
 │   └── SUBMISSION_README.md       # Deliverable specifications, filenames & master checklist
 └── submission/                    # Final submission deliverables
-    └── Nexora_Datathon2026_Report.pdf
+    ├── Nexora_Datathon2026_Report.pdf
+    ├── Nexora_Datathon2026_Dashboard.zip
+    └── Nexora_Datathon2026_Video.mp4
 ```
 
 ---
@@ -41,3 +43,5 @@ competition and submission/
 * Critical Deadlines:
   * **Google Drive Upload**: **22 September 2026, by 5:00 PM**
   * **Confirmation Google Form**: **22 September 2026, by 11:59 PM**
+
+The repository contains all three correctly named preliminary-round deliverables. The report has 22 counted pages, the dashboard ZIP contains the four required root files, and the video duration is 8 minutes 46 seconds.

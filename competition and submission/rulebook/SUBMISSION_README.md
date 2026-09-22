@@ -36,12 +36,12 @@
 
 ## 2. Dashboard Package (`Nexora_Datathon2026_Dashboard.zip`)
 
-*Local Workspace*: [`powerbi_dashboard/`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/powerbi_dashboard)
+*Local Workspace*: [`powerbi_dashboard/`](../../powerbi_dashboard/)
 
 Compress exactly these 4 files into the root of the ZIP:
 1. **`Dashboard.pdf`**: High-resolution static view of all completed dashboard pages.
 2. **`Dashboard.pbix`** *(or `.xlsx`/`.twbx`)*: Original interactive dashboard file (fully functional filters, slicers & drill-downs; zero broken calculations; self-contained without external database dependencies).
-3. **`Data.csv`** *(or `.xlsx`)*: Cleaned/raw dataset powering the dashboard visuals.
+3. **`Data.xlsx`**: Consolidated source, forecast, backtest, and model-diagnostic data used by the dashboard.
 4. **`README.txt`**: Plain-text document covering:
    - Software name and exact version (e.g., *Power BI Desktop September 2026*)
    - Step-by-step instructions to open the dashboard
@@ -85,8 +85,9 @@ Presentation slide decks are **not** required for the preliminary round. If Team
 
 ## ✅ Pre-Submission Checklist
 
-- [ ] **Report**: `Nexora_Datathon2026_Report.pdf` (<= 25 pages, official cover template, TNR 12, 1.5 spacing, justified, sections 1–9 complete)
-- [ ] **Dashboard**: `Nexora_Datathon2026_Dashboard.zip` (contains `Dashboard.pdf`, `Dashboard.pbix`, `Data.csv`, `README.txt` with all 5 elements)
-- [ ] **Video**: `Nexora_Datathon2026_Video.mp4` (MP4, <= 10 mins, includes live dashboard demo)
+- [x] **Report**: `Nexora_Datathon2026_Report.pdf` (22 counted pages; 28 PDF pages including cover, TOC, and references; Times New Roman 12 pt; 1.5 spacing; justified)
+- [x] **Dashboard**: `Nexora_Datathon2026_Dashboard.zip` (contains exactly `Dashboard.pdf`, `Dashboard.pbix`, `Data.xlsx`, and `README.txt` at the ZIP root)
+- [x] **Video technical check**: `Nexora_Datathon2026_Video.mp4` (8:46, 1920 x 1080, H.264 video and AAC audio)
+- [ ] **Video content check**: Confirm the final playback includes clear audio, legible text, and the live dashboard demonstration.
 - [ ] **Drive Upload**: All 3 files uploaded to designated Google Drive **before 22 Sep 2026, 5:00 PM**
 - [ ] **Confirmation Form**: Google Form submitted on [datathon.dosm.gov.my](https://datathon.dosm.gov.my/) **before 22 Sep 2026, 11:59 PM**

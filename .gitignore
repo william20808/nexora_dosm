@@ -13,3 +13,7 @@ database/clean_data.csv
 database/*.sqlite-shm
 database/*.sqlite-wal
 *.pbix.lock
+~$*
+tmp/
+.codex-finalizer/
+.codex-presentation/

@@ -28,7 +28,7 @@ Final submission artifacts are stored in [`competition and submission/submission
 | :--- | :--- | :--- |
 | Written report | `Nexora_Datathon2026_Report.pdf` | Final competition report in PDF format |
 | Dashboard package | `Nexora_Datathon2026_Dashboard.zip` | Power BI dashboard, static PDF, source data, and usage instructions |
-| Video presentation | `Nexora_Datathon2026_Video.mp4` | Required presentation video; add when finalized |
+| Video presentation | `Nexora_Datathon2026_Video.mp4` | Final 8-minute 46-second, 1080p presentation video |
 
 The editable report is maintained separately at [`report/Nexora_Datathon2026_Report.docx`](report/Nexora_Datathon2026_Report.docx).
 
@@ -48,7 +48,8 @@ nexora_dosm/
 │   │   └── Datathon 2026 - Booklet Final.pdf
 │   └── submission/
 │       ├── Nexora_Datathon2026_Report.pdf
-│       └── Nexora_Datathon2026_Dashboard.zip
+│       ├── Nexora_Datathon2026_Dashboard.zip
+│       └── Nexora_Datathon2026_Video.mp4
 ├── data/
 │   ├── README.md
 │   ├── dosm_datathon.db

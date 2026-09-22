@@ -15,6 +15,8 @@
 
 * **Word Document**: [`Nexora_Datathon2026_Report.docx`](./Nexora_Datathon2026_Report.docx)
 
+The submitted PDF has 28 physical pages: one cover page, two table-of-contents pages, 22 counted report pages, and three reference pages. The editable DOCX and submitted PDF contain matching text and pagination.
+
 ---
 
 ## 📋 General Formatting Requirements
@@ -51,12 +53,12 @@ The structure below reflects the official section breakdown and the sections est
 
 ## ✅ Submission Checklist
 
-- [ ] Front page completed with Project Title, Team Nexora, Member names, and Academic Advisor
-- [ ] Table of contents automatically updated with final page numbers
-- [ ] Maximum 25 pages for Core Sections 1.0 to 6.0 combined
-- [ ] Times New Roman, Size 12 font throughout
-- [ ] 1.5 line spacing applied to body text
-- [ ] Justified text alignment applied
-- [ ] All 6 core sections and subsections addressed
-- [ ] References formatted consistently
-- [ ] Exported as `Nexora_Datathon2026_Report.pdf`
+- [x] Front page completed with Project Title, Team Nexora, Member names, and Academic Advisor
+- [x] Table of contents updated with final page numbers
+- [x] Core Sections 1.0 to 6.0 occupy 22 pages, within the 25-page limit
+- [x] Times New Roman, 12 pt body font
+- [x] 1.5 line spacing applied to body text
+- [x] Justified body text alignment
+- [x] All six required core sections and subsections addressed
+- [x] References formatted consistently
+- [x] Exported as `Nexora_Datathon2026_Report.pdf`
