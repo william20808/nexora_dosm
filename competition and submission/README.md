@@ -17,9 +17,10 @@ competition and submission/
 ├── README.md                      # Competition and submission workspace hub & portal links
 ├── rulebook/                      # Official competition booklet & handbook
 │   ├── README.md                  # Quick summary of rules, timeline & evaluation rubrics
-│   └── Datathon 2026 - Booklet Final.pdf # Official DOSM competition handbook (PDF)
-└── submission/                    # Preliminary round packaging guidelines & checklists
-    └── README.md                  # Deliverable specifications, filenames & master checklist
+│   ├── Datathon 2026 - Booklet Final.pdf # Official DOSM competition handbook (PDF)
+│   └── SUBMISSION_README.md       # Deliverable specifications, filenames & master checklist
+└── submission/                    # Final submission deliverables
+    └── Nexora_Datathon2026_Report.pdf
 ```
 
 ---
@@ -32,7 +33,7 @@ competition and submission/
 * Contains the complete rules, eligibility criteria, evaluation rubrics, data integrity mandates, and overall competition calendar.
 
 ### 2. 📦 Submission Packaging & Guidelines ([`submission/`](./submission/))
-* **Submission Guide**: [`submission/README.md`](./submission/README.md)
+* **Submission Guide**: [`rulebook/SUBMISSION_README.md`](./rulebook/SUBMISSION_README.md)
 * Covers specifications for all 3 preliminary round deliverables:
   1. `Nexora_Datathon2026_Report.pdf` (Written Project Report, max 25 pages)
   2. `Nexora_Datathon2026_Dashboard.zip` (Interactive Dashboard Package)
