@@ -11,10 +11,9 @@
 
 ---
 
-## 🔗 Collaborative Editing Workspace
+## 📝 Editable Report
 
-* **Live Word Document**: [Nexora_Datathon2026_Report_Template.docx](https://1drv.ms/w/c/4be9614aa70f8b63/IQAQPik3Zq4KQbo5MU3Go8-TAT6cTaHvKwVgnpJljTzj6co?e=rVGqJI)
-* **Link Record**: [`doc_link.txt`](file:///c:/Users/user/Desktop/CS50/CS50W%20-%20Web/nexora_dosm/report/doc_link.txt)
+* **Word Document**: [`Nexora_Datathon2026_Report.docx`](./Nexora_Datathon2026_Report.docx)
 
 ---
 
@@ -34,7 +33,7 @@
 
 ## 📑 Report Structure & Page Allocation
 
-The structure below reflects the official section breakdown and the sections established in [Nexora_Datathon2026_Report_Template.docx](https://1drv.ms/w/c/4be9614aa70f8b63/IQAQPik3Zq4KQbo5MU3Go8-TAT6cTaHvKwVgnpJljTzj6co?e=rVGqJI):
+The structure below reflects the official section breakdown and the sections established in [`Nexora_Datathon2026_Report.docx`](./Nexora_Datathon2026_Report.docx):
 
 | Section | Suggested Pages | Key Subsections & Topics |
 | :--- | :---: | :--- |
