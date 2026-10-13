@@ -2,7 +2,7 @@
 
 **Team**: Nexora  
 **Format**: 10-minute presentation including a live dashboard demo, followed by 5 minutes of Q&A  
-**Marking scheme**: [`DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf`](../competition/rulebook/DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf)
+**Marking scheme**: [`DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf`](../competition_rule/DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf)
 
 | Criterion | C1 PJT | C2 DEM | C3 ANL | C4 IMP | C5 INV |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -24,7 +24,6 @@ The slide videos are embedded in the PPTX, so the deck plays without the `assets
 ## 🎤 Pitch Script ([`script/`](script/))
 
 - [`pitch_script_final.pdf`](script/pitch_script_final.pdf) — the script used for the pitch.
-- [`archive/`](script/archive/) — earlier drafts (`new_pitch_script_v2.pdf`, `pitch_script_v5_cues.pdf`), kept for reference.
 
 ---
 

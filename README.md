@@ -49,13 +49,10 @@ All aggregated arrival figures refer only to the 20 modelled source markets and 
 nexora_dosm/
 ├── README.md
 ├── requirements.txt
-├── competition/                   # Official rules and marking schemes
+├── competition_rule/              # Official rules and marking schemes
 │   ├── README.md
-│   └── rulebook/
-│       ├── README.md
-│       ├── SUBMISSION_README.md
-│       ├── Datathon 2026 - Booklet Final.pdf
-│       └── DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf
+│   ├── Datathon 2026 - Booklet Final.pdf
+│   └── DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf
 ├── data/                          # 1 · Source data
 │   ├── README.md
 │   ├── dosm_datathon.db
@@ -80,7 +77,7 @@ nexora_dosm/
 └── 2_final_round/                 # 4 · Live pitch
     ├── README.md
     ├── submission/                # Submitted slides and dashboard
-    ├── script/                    # Final pitch script (+ archive/)
+    ├── script/                    # Final pitch script
     └── assets/                    # Slide images, icons and video clips
 ```
 
@@ -119,4 +116,4 @@ The [`2_final_round/`](2_final_round/) directory contains the submitted pitch sl
 
 ### Competition Materials
 
-The [`competition/rulebook/`](competition/rulebook/) directory contains the official booklet, the final-round marking scheme, a rule summary, and the preliminary submission guide.
+The [`competition_rule/`](competition_rule/) directory contains the official booklet, the final-round marking scheme, and a README that summarises the rules and the preliminary submission guide.

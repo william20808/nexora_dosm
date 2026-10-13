@@ -2,7 +2,7 @@
 
 **Team**: Nexora  
 **Deadline**: 22 September 2026 (file upload by 5:00 PM; confirmation form by 11:59 PM)  
-**Requirements**: [`competition/rulebook/SUBMISSION_README.md`](../competition/rulebook/SUBMISSION_README.md)
+**Requirements**: [Preliminary Round Submission Guide](../competition_rule/README.md#-preliminary-round-submission-guide)
 
 ---
 
