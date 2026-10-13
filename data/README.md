@@ -3,7 +3,7 @@
 ## 📌 Data Overview
 
 This directory houses the comprehensive analytical dataset for Team **Nexora**, integrating:
-1. **International Country Panel Data**: Monthly horizon from **March 2017 to September 2026** tracking international tourist arrivals across **20 key source markets** alongside bilateral exchange rates and competition hold-out evaluation splits.
+1. **International Country Panel Data**: Monthly horizon from **March 2017 to September 2026** tracking international tourist arrivals across **20 key source markets** alongside bilateral exchange rates and model hold-out flags.
 2. **National Macroeconomic Time Series**: Monthly indicators spanning energy prices (Brent Crude), retail fuel prices (RON95, RON97, Diesel), Malaysian economic leading/coincident/lagging indices, and global/domestic Geopolitical Risk (GPR) indices.
 3. **State-Level Tourism & Hospitality Panel**: Annual panel spanning **2017 to 2025** across **16 Malaysian states and federal territories**, capturing hotel occupancy rates, domestic vs. international hotel guests, and domestic visitor volumes.
 4. **Authoritative Variable Provenance Catalog**: Comprehensive metadata mapping 63 variables to custodian agencies, APIs, publications, units, and missingness audit metrics.
@@ -54,9 +54,9 @@ Each observation represents a monthly record for a specific international origin
 | **`month`** | `INTEGER` | Calendar month of the observation (1 to 12). |
 | **`monthly_tourist_arrivals`** | `REAL` | Total count of international tourist arrivals entering Malaysia from the origin country during the month (sourced from Tourism Malaysia / Immigration Department). |
 | **`monthly_arrivals_available_flag`** | `INTEGER` | Binary flag (`1` = arrival figure is published and available; `0` = unpublished). |
-| **`monthly_myr_per_source_currency`** | `REAL` | Monthly average bilateral exchange rate expressed as Malaysian Ringgit (MYR) per unit of source currency (from Bank Negara Malaysia). A higher value indicates source currency appreciation against MYR. |
+| **`monthly_myr_per_source_currency`** | `REAL` | Monthly average bilateral exchange rate expressed as Malaysian Ringgit (MYR) per unit of source currency (from Bank Negara Malaysia; Bangladesh Bank for the BDT leg). A higher value indicates source currency appreciation against MYR. |
 | **`target_missing_flag`** *(imputed only)* | `INTEGER` | Binary flag (`1` = target arrivals figure was originally missing in raw release; `0` = observed). |
-| **`model_row_status`** *(imputed only)* | `TEXT` | Competition split status: `Training eligible` (67,000 rows with historical actuals) or `Hold out - target not published` (2,040 rows reserved for forecasting). |
+| **`model_row_status`** *(imputed only)* | `TEXT` | Model split status: `Training eligible` (67,000 rows with historical actuals) or `Hold out - target not published` (2,040 rows reserved for forecasting). |
 
 ---
 
@@ -71,10 +71,10 @@ Monthly external macroeconomic, commodity, and geopolitical risk indicators affe
 
 ### 2. Geopolitical Risk (GPR) Indicators
 * **`gpr_global_index`** (`REAL`): Global Geopolitical Risk Index (benchmark index developed by Caldara & Iacoviello measuring worldwide geopolitical tensions, armed conflicts, and terror threats).
-* **`gpr_malaysia_index`** (`REAL`): Malaysia-specific Geopolitical Risk Index tracking regional geopolitical news sentiment and domestic stability.
+* **`gpr_malaysia_index`** (`REAL`): Country-specific Geopolitical Risk Index for Malaysia (`GPRC_MYS`, Caldara & Iacoviello).
 
 ### 3. Global Energy Commodity
-* **`brent_crude_usd_bbl`** (`REAL`): Monthly average benchmark price of Brent Crude oil in US Dollars per barrel (`USD/bbl`), serving as a proxy for aviation jet fuel and long-haul travel costs.
+* **`brent_crude_usd_bbl`** (`REAL`): Monthly average benchmark price of Brent Crude oil in US Dollars per barrel (`USD/bbl`, World Bank), serving as a proxy for aviation jet fuel and long-haul travel costs.
 
 ### 4. Malaysian Macroeconomic Indices (DOSM / OpenDOSM)
 * **`leading_index`** (`REAL`): Malaysian Leading Economic Index (anticipates short-term economic inflection points and turning trends).
@@ -93,18 +93,18 @@ Monthly external macroeconomic, commodity, and geopolitical risk indicators affe
 * **`gpr_observations_in_month`** (`INTEGER`): Count of daily GPR index observations recorded in that calendar month.
 * **`brent_observations_in_month`** (`INTEGER`): Count of daily Brent trading sessions recorded in the month.
 * **`mei_observations_in_month`** (`INTEGER`): Number of macroeconomic index observations extracted.
-* **`fuel_source_observations_in_month`** (`INTEGER`): Number of fuel price records extracted from gazette sources.
+* **`fuel_source_observations_in_month`** (`INTEGER`): Number of published fuel price records in the month.
 * **`fuel_effective_days_in_month`** (`INTEGER`): Number of calendar days covered by fuel price determinations.
 * **`period_days_in_file`** (`INTEGER`): Number of days present in the raw data extract.
 * **`calendar_days_in_month`** (`INTEGER`): Total calendar days in that month (28, 29, 30, or 31).
-* **`fuel_coverage_pct`** (`INTEGER`): Percentage of the month covered by published fuel gazettes.
+* **`fuel_coverage_pct`** (`INTEGER`): Ratio of the month covered by published fuel prices (`1` = full coverage), despite the `_pct` name.
 * **`period_complete_flag`** (`INTEGER`): Binary indicator (`1` if entire month has full data coverage; `0` if incomplete).
 * **`fuel_low_coverage_flag`** (`INTEGER`): Warning flag (`1` if fuel price data coverage was partial or sparse).
-* **`retrieved_at_utc`** (`REAL`): UTC timestamp recording when the observation was extracted.
+* **`retrieved_at_utc`** (`REAL`): UTC date-time of the acquisition run, stored as an Excel serial date number.
 * **Predictor Imputation Flags** (`INTEGER`): Binary flags (`gpr_global_index_imputed_flag`, `gpr_malaysia_index_imputed_flag`, `brent_crude_usd_bbl_imputed_flag`, `leading_index_imputed_flag`, `coincident_index_imputed_flag`, `lagging_index_imputed_flag`, `leading_diffusion_index_imputed_flag`, `coincident_diffusion_index_imputed_flag`) denoting if that predictor was estimated.
 * **`imputed_predictor_count`** (`INTEGER`): Total count of macroeconomic predictors imputed in that month (0 to 8).
 * **`any_predictor_imputed_flag`** (`INTEGER`): Binary indicator (`1` if any predictor in the row was imputed; `0` if all observed).
-* **`imputation_status`** (`TEXT`): Human-readable audit status (e.g., `All original observed`, `Imputed via forward-fill / linear interpolation`).
+* **`imputation_status`** (`TEXT`): Human-readable audit status (`Observed predictors only` or `Contains estimated predictor value(s)`).
 
 ---
 
@@ -118,13 +118,13 @@ Annual state-level hospitality operations and domestic visitor metrics covering 
 | **`year`** | `INTEGER` | Calendar observation year (2017 to 2025, 9 consecutive annual periods). |
 | **`state_code`** | `TEXT` | Standard ISO 3166-2:MY state identifier code (e.g., `MY-01` for Johor, `MY-14` for Kuala Lumpur). |
 | **`state_name`** | `TEXT` | Official English name of the state or federal territory. |
-| **`hotel_occupancy_rate_pct`** | `REAL` | Annual average hotel room occupancy rate expressed as a percentage (sourced from Tourism Malaysia KPI reports). |
+| **`hotel_occupancy_rate_pct`** | `REAL` | Annual average hotel room occupancy rate expressed as a percentage (sourced from Tourism Malaysia KPI and Paid Accommodation reports). |
 | **`domestic_hotel_guests`** | `INTEGER` | Count of domestic Malaysian residents accommodated in hotels within the state. |
 | **`international_hotel_guests`** | `INTEGER` | Count of foreign international travelers accommodated in hotels within the state. |
 | **`total_hotel_guests`** | `INTEGER` | Aggregate hotel guests accommodated (`domestic_hotel_guests` + `international_hotel_guests`). |
-| **`domestic_visitors`** | `INTEGER` | Total domestic visitor trips into the state (sourced from DOSM Survey of Domestic Tourism). |
+| **`domestic_visitors`** | `INTEGER` | Domestic visitors to the state (DOSM domestic tourism statistics; source unit '000 converted to estimated persons). |
 | **`release_agency`** | `TEXT` | Custodian reporting agencies (*Tourism Malaysia* and *Department of Statistics Malaysia*). |
-| **`source_document`** | `TEXT` | Formal publication name (e.g., *Tourism Malaysia KPI 2018–2025*, *DOSM Domestic Tourism Survey*). |
+| **`source_document`** | `TEXT` | Source file names (e.g., `Tourism_Malaysia_KPI_2018.pdf; tourism_domestic_2023.xlsx`). |
 | **`source_url`** | `TEXT` | Official download or portal URL. |
 | **`source_pages`** | `TEXT` | Specific report page citations. |
 | **`data_quality_note`** | `TEXT` | Data quality and provenance audit notes (e.g., unit conversions from '000 to absolute headcounts, revised baseline notes). |
@@ -145,11 +145,11 @@ The `sources` table acts as the authoritative metadata dictionary mapping every 
 | **`release_agency`** | Custodian agency (e.g., *Department of Statistics Malaysia*, *Bank Negara Malaysia*, *Ministry of Finance*, *Tourism Malaysia*). |
 | **`source_dataset_or_series`** | Official dataset publication or series title. |
 | **`api_or_download_url_used`** | Live public URL or API endpoint used to retrieve the data. |
-| **`access_method`** | Ingestion mechanism (e.g., `API query`, `Direct file download`, `Open data portal`). |
-| **`source_classification`** | Category (e.g., `Panel Target`, `Macroeconomic Index`, `Exchange Rate`, `Commodity Price`, `Hospitality Metric`). |
-| **`frequency`** | Temporal granularity (`Monthly`, `Daily aggregated to Monthly`, `Annual`). |
-| **`measurement_unit`** | Unit of measure (`Persons`, `Index (2015=100)`, `MYR/Currency`, `USD/bbl`, `RM/litre`, `Percent`). |
-| **`cleaning_or_derivation_applied`** | Transformations applied (e.g., `Monthly averaging`, `Forward-fill imputation`, `Standardization`, `Headcount unit conversion`). |
+| **`access_method`** | Ingestion mechanism (e.g., `data.gov.my Open API`, `Direct XLSX download`, `PDF table extraction`). |
+| **`source_classification`** | Source category (e.g., `Malaysian official core`, `External supporting`, `Project-derived`). |
+| **`frequency`** | Temporal granularity (e.g., `Monthly`, `Weekly source converted to monthly`, `Annual`, `Static reference`). |
+| **`measurement_unit`** | Unit of measure (e.g., `Persons/arrivals per month`, `Index`, `MYR per one source-currency unit`, `USD per barrel`, `RM per litre`, `Percent`). |
+| **`cleaning_or_derivation_applied`** | Transformations applied (e.g., month alignment, numeric casting, calendar-day-weighted monthly averaging, unit conversion). |
 | **`original_missing_count`** | Number of missing values in the raw dataset. |
 | **`original_missing_rate_pct`** | Missing data percentage prior to imputation. |
 | **`final_missing_count`** | Missing data count in the final modeling table. |
