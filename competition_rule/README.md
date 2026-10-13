@@ -1,10 +1,6 @@
 # 📚 Competition Rule — DOSM Datathon 2026
 
-**Theme**: Leveraging Machine Learning (ML) & Artificial Intelligence (AI) for Sustainable Tourism in Malaysia  
-**Team**: Nexora  
-**Group Focus**: Tourism Demand Forecasting, Macroeconomic Impact & Geopolitical Risk Analytics  
-**Competition**: Department of Statistics Malaysia (DOSM) Datathon 2026  
-**Official Competition Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Check for real-time announcements, schedules & forms)*
+Official rules and marking schemes for the DOSM Datathon 2026 (Team Nexora). Official portal: [datathon.dosm.gov.my](https://datathon.dosm.gov.my/).
 
 ---
 
@@ -19,40 +15,15 @@ The submitted files live with each round: [`1_preliminary_round/submission/`](..
 
 ---
 
-## 🌐 Official Competition Portal
+## 🏁 Final Round
 
-Always verify the latest announcements, schedules, FAQs, and submission Google Forms at **[https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/)**.
+Team Nexora was shortlisted for the final round: a physical live pitch of 10 minutes, including the dashboard demonstration, followed by 5 minutes of Q&A. Slide decks were not required in the preliminary round. The final-round slides, dashboard and script are in [`2_final_round/`](../2_final_round/).
 
-* **Competition Schedules & Milestones**: Live timeline of preliminary evaluations, shortlisting announcements, and the grand finale.
-* **Submission Google Form**: The mandatory confirmation form required after uploading preliminary deliverables.
-* **Official Data Sets & OpenDOSM Portals**: [OpenDOSM](https://open.dosm.gov.my), [eStatistik](https://newss.statistics.gov.my), [StatsDW](https://statsdw.dosm.gov.my).
-* **Rules & Updates**: Clarifications issued by the competition secretariat and technical committees.
-
----
-
-## 📑 Booklet Summary
-
-| Section | Key Guidance & Rule Set | Repository Reference |
-| :--- | :--- | :--- |
-| **Eligibility & Registration** | Open to registered teams (Team **Nexora**). | [`README.md`](../README.md) |
-| **Deliverable 1: Report** | `Nexora_Datathon2026_Report.pdf`: Max 25 pages (excluding cover, TOC, references), Times New Roman 12, 1.5 spacing, justified. | [`1_preliminary_round/report/`](../1_preliminary_round/report/) |
-| **Deliverable 2: Dashboard** | `Nexora_Datathon2026_Dashboard.zip`: Contains `Dashboard.pdf`, `Dashboard.pbix`, `Data.xlsx`, and `README.txt`. | [`1_preliminary_round/dashboard/`](../1_preliminary_round/dashboard/) |
-| **Deliverable 3: Video** | `Nexora_Datathon2026_Video.mp4`: Strict 10-minute maximum MP4 presentation including live dashboard demo. | [`1_preliminary_round/submission/`](../1_preliminary_round/submission/) |
-| **Preliminary Deadlines** | **File Upload**: 22 September 2026, 5:00 PM (Google Drive)<br>**Confirmation Form**: 22 September 2026, 11:59 PM | [Preliminary Round Submission Guide](#-preliminary-round-submission-guide) |
-| **Final Round** | 10-minute live pitch including a dashboard demo, followed by 5 minutes of Q&A. | [`2_final_round/`](../2_final_round/) |
-| **Data Compliance** | Genuine Malaysian data only. No simulated or fabricated data. Bonus evaluation for official government sources. | [`data/README.md`](../data/README.md) |
-
----
-
-## 🏁 Final Round Marking Scheme
-
-Source: [`DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf`](./DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf)
+Marking scheme (source: [`DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf`](./DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf)):
 
 | Criterion | C1 PJT | C2 DEM | C3 ANL | C4 IMP | C5 INV |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Weight | 20% | 25% | 20% | 25% | 10% |
-
-The dashboard demonstration counts inside the 10-minute pitch, followed by 5 minutes of Q&A.
 
 ---
 
@@ -66,9 +37,6 @@ The dashboard demonstration counts inside the 10-minute pitch, followed by 5 min
 | :--- | :---: | :--- |
 | **1. File Upload** | **5:00 PM** | All 3 files (`.pdf`, `.zip`, `.mp4`) uploaded to team Google Drive |
 | **2. Confirmation Form** | **11:59 PM** | Mandatory confirmation Google Form submitted on [datathon.dosm.gov.my](https://datathon.dosm.gov.my/) |
-
-> [!WARNING]
-> File uploads strictly close at **5:00 PM**. The 11:59 PM cutoff applies only to the confirmation Google Form.
 
 ### 1. Written Project Report (`Nexora_Datathon2026_Report.pdf`)
 
@@ -129,9 +97,3 @@ Compress exactly these 4 files into the root of the ZIP:
 * **Authenticity**: Use genuine, publicly accessible data. **Fabricated or simulated data is strictly prohibited.**
 * **Bonus Points**: Extra marks awarded for using official Malaysian sources (OpenDOSM, eStatistik, StatsDW, Tourism Malaysia, BNM).
 * **Attribution & Privacy**: Transparently cite all data, APIs, and libraries; zero confidential or unpermitted personal data (PII).
-
----
-
-## ℹ️ Preliminary vs. Final Round
-
-Presentation slide decks were **not** required for the preliminary round. Team Nexora was shortlisted for the final round, a physical live pitch (10-minute presentation + 5-minute Q&A). The final-round slides, dashboard and script are in [`2_final_round/`](../2_final_round/).
