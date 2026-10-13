@@ -48,6 +48,7 @@ All aggregated arrival figures refer only to the 20 modelled source markets and 
 ```text
 nexora_dosm/
 ├── README.md
+├── LICENSE                        # MIT licence
 ├── requirements.txt
 ├── competition_rule/              # Official rules and marking schemes
 │   ├── README.md
@@ -63,6 +64,7 @@ nexora_dosm/
 ├── machine_learning/              # 2 · Forecasting pipeline
 │   ├── README.md
 │   ├── DATA_DICTIONARY.md
+│   ├── __init__.py
 │   ├── config.py, data_loader.py, feature_engineering.py
 │   ├── train.py, predict.py, evaluate.py, explainability.py
 │   ├── run_pipeline.py
@@ -119,3 +121,9 @@ The [`2_final_round/`](2_final_round/) directory contains the submitted pitch sl
 ### Competition Materials
 
 The [`competition_rule/`](competition_rule/) directory contains the official booklet, the final-round marking scheme, and a README that summarises the rules and the preliminary submission guide.
+
+---
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE).
