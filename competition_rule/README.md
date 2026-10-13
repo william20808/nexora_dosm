@@ -29,15 +29,6 @@ Marking scheme (source: [`DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf`](./DOSM_
 
 ## 📦 Preliminary Round Submission Guide
 
-**Submission Location**: Team's Designated Google Drive Folder
-
-### ⏰ Deadlines (22 September 2026)
-
-| Milestone | Deadline | Requirement |
-| :--- | :---: | :--- |
-| **1. File Upload** | **5:00 PM** | All 3 files (`.pdf`, `.zip`, `.mp4`) uploaded to team Google Drive |
-| **2. Confirmation Form** | **11:59 PM** | Mandatory confirmation Google Form submitted on [datathon.dosm.gov.my](https://datathon.dosm.gov.my/) |
-
 ### 1. Written Project Report (`Nexora_Datathon2026_Report.pdf`)
 
 * **Specifications**: PDF format | Max **25 pages** (strictly excluding Front page, Table of contents, References) | **Times New Roman 12 pt** | **1.5 line spacing** | **Justified alignment** | Official DOSM cover page template.
@@ -81,13 +72,6 @@ Compress exactly these 4 files into the root of the ZIP:
   5. *Key Findings & Insights*: Trend analysis, model results, and implications.
   6. *Live Dashboard Demo*: Screen recording of interactive filters, scenarios, and user flow.
   7. *Conclusion & Impact*: Recommendations, potential socio-economic impact, scalability.
-
-### ✅ Submission Checklist
-
-- [x] **Report**: `Nexora_Datathon2026_Report.pdf` (23 counted pages; 29 PDF pages including 1 cover, 2 TOC, and 3 reference pages; Times New Roman 12 pt; 1.5 spacing; justified)
-- [x] **Dashboard**: `Nexora_Datathon2026_Dashboard.zip` (contains exactly `Dashboard.pdf`, `Dashboard.pbix`, `Data.xlsx`, and `README.txt` at the ZIP root)
-- [x] **Video**: `Nexora_Datathon2026_Video.mp4` (8:46, 1920 × 1080, H.264 video and AAC audio)
-- [x] **Drive Upload** and **Confirmation Form** completed; Team Nexora advanced to the final round.
 
 ---
 

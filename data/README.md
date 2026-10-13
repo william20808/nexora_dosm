@@ -1,11 +1,5 @@
 # 🗄️ Datathon Data Catalog & Variable Dictionary
 
-**Team**: Nexora  
-**Competition**: Department of Statistics Malaysia (DOSM) Datathon 2026  
-**Primary Assets**: `dosm_datathon.db` (SQLite) & `excel data/final_deliveries_dataset.xlsx` (Excel)
-
----
-
 ## 📌 Data Overview
 
 This directory houses the comprehensive analytical dataset for Team **Nexora**, integrating:
