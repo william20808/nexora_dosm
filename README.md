@@ -9,6 +9,20 @@
 
 ---
 
+## 👥 Team Members
+
+| Name | Role |
+| :--- | :--- |
+| Chin William | Member |
+| Tang Xin Yi | Member |
+| Janis Ong Jing Yao | Member |
+| Tee Xin Yee | Member |
+| Dr. Kelwin Tan Seen Tiong | Advisor (Department of Computing) |
+
+Faculty of Accountancy and Management, Universiti Tunku Abdul Rahman (UTAR), Kajang, Selangor, Malaysia.
+
+---
+
 ## 📦 Submissions
 
 | Round | Deliverable | File |
@@ -96,7 +110,15 @@ The pipeline reads `data/dosm_datathon.db`, regenerates the tables in `machine_l
 
 ---
 
-## 📊 Round Folders
+## 📊 Project Components
+
+### Data
+
+The [`data/`](data/) directory contains the SQLite database, schema, reusable SQL queries, and source Excel workbook. Its contents cover monthly source-market arrivals, exchange rates, geopolitical-risk indicators, energy prices, and supporting Malaysian tourism data.
+
+### Machine Learning
+
+The [`machine_learning/`](machine_learning/) directory contains feature engineering, model training, forecasting, evaluation, explainability, generated outputs, and the consolidated data dictionary.
 
 ### Preliminary Round
 
@@ -109,6 +131,10 @@ The [`1_preliminary_round/`](1_preliminary_round/) directory contains the submit
 ### Final Round
 
 The [`2_final_round/`](2_final_round/) directory contains the submitted pitch slides and final dashboard, the pitch script ([`pitch_script_final.pdf`](2_final_round/script/pitch_script_final.pdf)), and the images, icons and video clips used in the deck. The slide videos are embedded in the PPTX, so the deck plays without the `assets/` folder. The final dashboard is an updated version of the preliminary one.
+
+### Competition Materials
+
+The [`competition_rule/`](competition_rule/) directory contains the official booklet, the final-round marking scheme, and a README that summarises the rules and the preliminary submission guide.
 
 ---
 
