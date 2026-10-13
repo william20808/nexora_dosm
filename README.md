@@ -19,7 +19,7 @@
 | **2 · Final pitch** | Presentation slides | [`PPTX`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pptx) · [`PDF`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pdf) |
 | | Dashboard | [`PBIX`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Dashboard.pbix) · [`PDF`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Dashboard.pdf) |
 
-Each round's `submission/` folder holds exactly the files that were handed in, under their submitted names. See the round guides: [Preliminary round](1_preliminary_round/README.md) · [Final round](2_final_round/README.md).
+Each round's `submission/` folder holds exactly the files that were handed in, under their submitted names. Rules, the final-round marking scheme and the preliminary submission guide are in [`competition_rule/`](competition_rule/README.md).
 
 ---
 
@@ -69,13 +69,11 @@ nexora_dosm/
 │   ├── artifacts/
 │   └── outputs/
 ├── 1_preliminary_round/           # 3 · Report, dashboard and video
-│   ├── README.md
 │   ├── submission/                # Submitted files (PDF, ZIP, MP4)
 │   ├── report/                    # Editable report DOCX
 │   ├── dashboard/                 # Unzipped dashboard package source
 │   └── slides/                    # Preliminary presentation PPTX
 └── 2_final_round/                 # 4 · Live pitch
-    ├── README.md
     ├── submission/                # Submitted slides and dashboard
     ├── script/                    # Final pitch script
     └── assets/                    # Slide images, icons and video clips
@@ -108,11 +106,15 @@ The [`machine_learning/`](machine_learning/) directory contains feature engineer
 
 ### Preliminary Round
 
-The [`1_preliminary_round/`](1_preliminary_round/) directory contains the submitted report, dashboard ZIP and video, together with the editable report DOCX, the unzipped Power BI package, and the preliminary slide deck.
+The [`1_preliminary_round/`](1_preliminary_round/) directory contains the submitted report, dashboard ZIP and video, together with:
+
+- `report/` — the editable report DOCX (23 counted pages, Sections 1.0–6.0).
+- `dashboard/` — the unzipped Power BI package; [`README.txt`](1_preliminary_round/dashboard/README.txt) explains how to open and navigate it.
+- `slides/` — the preliminary slide deck.
 
 ### Final Round
 
-The [`2_final_round/`](2_final_round/) directory contains the submitted pitch slides and final dashboard, the pitch script, and the images, icons and video clips used in the deck.
+The [`2_final_round/`](2_final_round/) directory contains the submitted pitch slides and final dashboard, the pitch script ([`pitch_script_final.pdf`](2_final_round/script/pitch_script_final.pdf)), and the images, icons and video clips used in the deck. The slide videos are embedded in the PPTX, so the deck plays without the `assets/` folder. The final dashboard is an updated version of the preliminary one.
 
 ### Competition Materials
 
