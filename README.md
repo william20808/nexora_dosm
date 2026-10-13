@@ -2,24 +2,12 @@
 
 **Project**: Geopolitical Risk and International Tourism Demand in Malaysia: A Machine Learning Forecasting Framework for 20 Source Markets  
 **Team**: Nexora  
+**Members**: Chin William | Tang Xin Yi | Janis Ong Jing Yao | Tee Xin Yee  
+**Advisor**: Dr. Kelwin Tan Seen Tiong, Universiti Tunku Abdul Rahman (UTAR)  
 **Theme**: Leveraging Machine Learning and Artificial Intelligence for Sustainable Tourism in Malaysia  
 **Focus**: Tourism demand forecasting, economic drivers, and geopolitical-risk analytics  
 **Organiser**: Department of Statistics Malaysia (DOSM)  
 **Official Portal**: [datathon.dosm.gov.my](https://datathon.dosm.gov.my/)
-
----
-
-## 👥 Team Members
-
-| Name | Role |
-| :--- | :--- |
-| Chin William | Member |
-| Tang Xin Yi | Member |
-| Janis Ong Jing Yao | Member |
-| Tee Xin Yee | Member |
-| Dr. Kelwin Tan Seen Tiong | Advisor (Department of Computing) |
-
-Faculty of Accountancy and Management, Universiti Tunku Abdul Rahman (UTAR), Kajang, Selangor, Malaysia.
 
 ---
 
