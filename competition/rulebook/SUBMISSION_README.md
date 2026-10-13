@@ -36,7 +36,7 @@
 
 ## 2. Dashboard Package (`Nexora_Datathon2026_Dashboard.zip`)
 
-*Local Workspace*: [`powerbi_dashboard/`](../../powerbi_dashboard/)
+*Local Workspace*: [`1_preliminary_round/dashboard/`](../../1_preliminary_round/dashboard/)
 
 Compress exactly these 4 files into the root of the ZIP:
 1. **`Dashboard.pdf`**: High-resolution static view of all completed dashboard pages.

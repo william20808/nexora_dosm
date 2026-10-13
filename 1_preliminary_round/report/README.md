@@ -7,14 +7,14 @@
 **Deliverable**: Preliminary Round Written Project Report  
 **Submission Filename**: `Nexora_Datathon2026_Report.pdf`  
 **Official Competition Portal**: [https://datathon.dosm.gov.my/](https://datathon.dosm.gov.my/) *(Check for competition announcements & submission links)*  
-**Official Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](../competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)  
+**Official Rulebook**: [`competition/rulebook/Datathon 2026 - Booklet Final.pdf`](../../competition/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)  
 
 ---
 
 ## 📝 Editable Materials
 
 * **Word Document**: [`Nexora_Datathon2026_Report.docx`](./Nexora_Datathon2026_Report.docx)
-* **Presentation Slides**: [`Nexora_Datathon2026_Presentation_Slide.pptx`](./Nexora_Datathon2026_Presentation_Slide.pptx)
+* **Presentation Slides**: [`Nexora_Datathon2026_Presentation_Slide.pptx`](../slides/Nexora_Datathon2026_Presentation_Slide.pptx)
 
 The submitted PDF has 29 physical pages: one cover page, two table-of-contents pages, 23 counted report pages, and three reference pages. The editable DOCX and submitted PDF contain matching text and pagination.
 

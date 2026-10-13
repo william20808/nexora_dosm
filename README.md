@@ -5,8 +5,21 @@
 **Theme**: Leveraging Machine Learning and Artificial Intelligence for Sustainable Tourism in Malaysia  
 **Focus**: Tourism demand forecasting, economic drivers, and geopolitical-risk analytics  
 **Organiser**: Department of Statistics Malaysia (DOSM)  
-**Official Portal**: [datathon.dosm.gov.my](https://datathon.dosm.gov.my/)  
-**Competition Rulebook**: [`competition and submission/rulebook/Datathon 2026 - Booklet Final.pdf`](competition%20and%20submission/rulebook/Datathon%202026%20-%20Booklet%20Final.pdf)
+**Official Portal**: [datathon.dosm.gov.my](https://datathon.dosm.gov.my/)
+
+---
+
+## 📦 Submissions
+
+| Round | Deliverable | File |
+| :--- | :--- | :--- |
+| **1 · Preliminary** | Written report | [`Nexora_Datathon2026_Report.pdf`](1_preliminary_round/submission/Nexora_Datathon2026_Report.pdf) |
+| | Dashboard package | [`Nexora_Datathon2026_Dashboard.zip`](1_preliminary_round/submission/Nexora_Datathon2026_Dashboard.zip) |
+| | Video presentation (8:46, 1080p) | [`Nexora_Datathon2026_Video.mp4`](1_preliminary_round/submission/Nexora_Datathon2026_Video.mp4) |
+| **2 · Final pitch** | Presentation slides | [`PPTX`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pptx) · [`PDF`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pdf) |
+| | Dashboard | [`PBIX`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Dashboard.pbix) · [`PDF`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Dashboard.pdf) |
+
+Each round's `submission/` folder holds exactly the files that were handed in, under their submitted names. See the round guides: [Preliminary round](1_preliminary_round/README.md) · [Final round](2_final_round/README.md).
 
 ---
 
@@ -14,23 +27,19 @@
 
 This project evaluates the predictive relationship between geopolitical risk and international tourism demand in Malaysia. It combines monthly arrivals from 20 modelled source markets with bilateral exchange rates, geopolitical-risk indices, energy prices, lagged demand, and seasonal features.
 
-The machine-learning pipeline produces one-to-four-month forecasts using a pooled direct multi-horizon LightGBM model. Its performance is compared with naive-last, seasonal-naive, and Ridge-regression benchmarks through rolling-origin backtesting. Results are presented in an interactive Power BI dashboard and documented in the written project report.
+The machine-learning pipeline produces one-to-four-month forecasts using a pooled direct multi-horizon LightGBM model. Its performance is compared with naive-last, seasonal-naive, and Ridge-regression benchmarks through rolling-origin backtesting. Results are presented in an interactive Power BI dashboard, documented in the written report, and pitched in the final round.
 
 All aggregated arrival figures refer only to the 20 modelled source markets and must not be interpreted as Malaysia's complete international-arrival total.
 
 ---
 
-## 📦 Submission Deliverables
+## 🔀 Project Flow
 
-Final submission artifacts are stored in [`competition and submission/submission/`](competition%20and%20submission/submission/).
-
-| Deliverable | Official filename | Description |
-| :--- | :--- | :--- |
-| Written report | `Nexora_Datathon2026_Report.pdf` | Final competition report in PDF format |
-| Dashboard package | `Nexora_Datathon2026_Dashboard.zip` | Power BI dashboard, static PDF, source data, and usage instructions |
-| Video presentation | `Nexora_Datathon2026_Video.mp4` | Final 8-minute 46-second, 1080p presentation video |
-
-The editable report and presentation deck are maintained in [`report and slide/`](report%20and%20slide/).
+```text
+ data/  ──►  machine_learning/  ──►  dashboard  ──►  report  ──►  pitch
+ (SQLite      (features, LightGBM,     (Power BI)     (Round 1)    (Round 2)
+  + Excel)     backtests, SHAP)
+```
 
 ---
 
@@ -40,46 +49,39 @@ The editable report and presentation deck are maintained in [`report and slide/`
 nexora_dosm/
 ├── README.md
 ├── requirements.txt
-├── competition and submission/
+├── competition/                   # Official rules and marking schemes
 │   ├── README.md
-│   ├── rulebook/
-│   │   ├── README.md
-│   │   ├── SUBMISSION_README.md
-│   │   └── Datathon 2026 - Booklet Final.pdf
-│   └── submission/
-│       ├── Nexora_Datathon2026_Report.pdf
-│       ├── Nexora_Datathon2026_Dashboard.zip
-│       └── Nexora_Datathon2026_Video.mp4
-├── data/
+│   └── rulebook/
+│       ├── README.md
+│       ├── SUBMISSION_README.md
+│       ├── Datathon 2026 - Booklet Final.pdf
+│       └── DOSM_Datathon_2026_Final_Round_Rubric_EN.pdf
+├── data/                          # 1 · Source data
 │   ├── README.md
 │   ├── dosm_datathon.db
 │   ├── schema.sql
 │   ├── queries.sql
 │   └── excel data/
 │       └── final_deliveries_dataset.xlsx
-├── machine_learning/
+├── machine_learning/              # 2 · Forecasting pipeline
 │   ├── README.md
 │   ├── DATA_DICTIONARY.md
-│   ├── config.py
-│   ├── data_loader.py
-│   ├── feature_engineering.py
-│   ├── train.py
-│   ├── predict.py
-│   ├── evaluate.py
-│   ├── explainability.py
+│   ├── config.py, data_loader.py, feature_engineering.py
+│   ├── train.py, predict.py, evaluate.py, explainability.py
 │   ├── run_pipeline.py
 │   ├── artifacts/
 │   └── outputs/
-├── powerbi_dashboard/
-│   ├── Dashboard.pbix
-│   ├── Dashboard.pdf
-│   ├── Data.xlsx
+├── 1_preliminary_round/           # 3 · Report, dashboard and video
 │   ├── README.md
-│   └── README.txt
-└── report and slide/
+│   ├── submission/                # Submitted files (PDF, ZIP, MP4)
+│   ├── report/                    # Editable report DOCX
+│   ├── dashboard/                 # Unzipped dashboard package source
+│   └── slides/                    # Preliminary presentation PPTX
+└── 2_final_round/                 # 4 · Live pitch
     ├── README.md
-    ├── Nexora_Datathon2026_Report.docx
-    └── Nexora_Datathon2026_Presentation_Slide.pptx
+    ├── submission/                # Submitted slides and dashboard
+    ├── script/                    # Final pitch script (+ archive/)
+    └── assets/                    # Slide images, icons and video clips
 ```
 
 ---
@@ -107,14 +109,14 @@ The [`data/`](data/) directory contains the SQLite database, schema, reusable SQ
 
 The [`machine_learning/`](machine_learning/) directory contains feature engineering, model training, forecasting, evaluation, explainability, generated outputs, and the consolidated data dictionary.
 
-### Power BI Dashboard
+### Preliminary Round
 
-The [`powerbi_dashboard/`](powerbi_dashboard/) directory contains the editable Power BI report, static PDF export, consolidated Excel data source, and dashboard instructions.
+The [`1_preliminary_round/`](1_preliminary_round/) directory contains the submitted report, dashboard ZIP and video, together with the editable report DOCX, the unzipped Power BI package, and the preliminary slide deck.
 
-### Report and Presentation Slides
+### Final Round
 
-The [`report and slide/`](report%20and%20slide/) directory contains the editable report DOCX, presentation PPTX, and report guidance. The final report PDF is stored with the official deliverables in the submission directory.
+The [`2_final_round/`](2_final_round/) directory contains the submitted pitch slides and final dashboard, the pitch script, and the images, icons and video clips used in the deck.
 
 ### Competition Materials
 
-The [`competition and submission/rulebook/`](competition%20and%20submission/rulebook/) directory contains the official booklet, rule summary, and submission guide. The [`submission/`](competition%20and%20submission/submission/) directory contains only final submission artifacts.
+The [`competition/rulebook/`](competition/rulebook/) directory contains the official booklet, the final-round marking scheme, a rule summary, and the preliminary submission guide.

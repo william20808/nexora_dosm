@@ -17,3 +17,9 @@ database/*.sqlite-wal
 tmp/
 .codex-finalizer/
 .codex-presentation/
+
+# Claude Code instructions
+CLAUDE.md
+
+# Windows download metadata
+*:Zone.Identifier
