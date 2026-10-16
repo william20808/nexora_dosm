@@ -79,7 +79,7 @@ nexora_dosm/
 │   └── slides/                    # Preliminary presentation PPTX
 └── 2_final_round/                 # 4 · Live pitch
     ├── submission/                # Submitted slides and dashboard
-    ├── script/                    # Final pitch script
+    ├── script/                    # Pitch script, judge Q&A and project guide
     └── assets/                    # Slide images, icons and video clips
 ```
 
@@ -118,7 +118,13 @@ The [`1_preliminary_round/`](1_preliminary_round/) directory contains the submit
 
 ### Final Round
 
-The [`2_final_round/`](2_final_round/) directory contains the submitted pitch slides and final dashboard, the pitch script ([`pitch_script_final.pdf`](2_final_round/script/pitch_script_final.pdf)), and the images, icons and video clips used in the deck. The slide videos are embedded in the PPTX, so the deck plays without the `assets/` folder. The final dashboard is an updated version of the preliminary one.
+The [`2_final_round/`](2_final_round/) directory contains the submitted pitch slides and final dashboard, the images, icons and video clips used in the deck. The slide videos are embedded in the PPTX, so the deck plays without the `assets/` folder. The final dashboard is an updated version of the preliminary one.
+
+The [`script/`](2_final_round/script/) folder holds the team's presentation preparation:
+
+- [`presentation_script_revised.pdf`](2_final_round/script/presentation_script_revised.pdf) — the spoken script for the 12 slides and the live demo, with click cues, timings (about 9:15) and marking-scheme coverage.
+- [`judge_qa_preparation.pdf`](2_final_round/script/judge_qa_preparation.pdf) — 30 likely judge questions with short answers; ★ marks the most important.
+- [`Nexora_Project_Guide.pdf`](2_final_round/script/Nexora_Project_Guide.pdf) — a plain-language guide to the whole project, following the report from problem to results.
 
 ### Competition Materials
 
