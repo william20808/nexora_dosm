@@ -6,6 +6,7 @@
 **Advisor**: Dr. Kelwin Tan Seen Tiong, Universiti Tunku Abdul Rahman (UTAR)  
 **Theme**: Leveraging Machine Learning and Artificial Intelligence for Sustainable Tourism in Malaysia  
 **Focus**: Tourism demand forecasting, economic drivers, and geopolitical-risk analytics  
+**Website**: [nexora-datathon-website.vercel.app](https://nexora-datathon-website.vercel.app)  
 **Organiser**: Department of Statistics Malaysia (DOSM)  
 **Official Portal**: [datathon.dosm.gov.my](https://datathon.dosm.gov.my/)
 
