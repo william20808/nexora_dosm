@@ -20,7 +20,7 @@
 | | Video presentation (8:46, 1080p) | [`Nexora_Datathon2026_Video.mp4`](1_preliminary_round/submission/Nexora_Datathon2026_Video.mp4) |
 | **2 · Final pitch** | Presentation slides | [`PPTX`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pptx) · [`PDF`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pdf) |
 | | Dashboard | [`PBIX`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Dashboard.pbix) · [`PDF`](2_final_round/submission/Nexora%20-%20DOSM%20Datathon%202026%20Dashboard.pdf) |
-| | Slides as presented (closing QR links to the [website](https://nexora-datathon-website.vercel.app)) | [`PPTX`](2_final_round/slides/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides%20%28website%20QR%29.pptx) · [`PDF`](2_final_round/slides/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides%20%28website%20QR%29.pdf) |
+| | Slides as presented (closing QR links to the [website](https://nexora-datathon-website.vercel.app)) | [`PPTX`](2_final_round/slides/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pptx) · [`PDF`](2_final_round/slides/Nexora%20-%20DOSM%20Datathon%202026%20Presentation%20Slides.pdf) |
 
 Each round's `submission/` folder holds exactly the files that were handed in, under their submitted names. Rules, the final-round marking scheme and the preliminary submission guide are in [`competition_rule/`](competition_rule/README.md).
 
